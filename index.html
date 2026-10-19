@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>まなびゲーム ひろば</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:light;--ink:#4a3438;--ink2:#8e7770;--bg-top:#fff3df;--accent:#d0656d}
+*{box-sizing:border-box}
+body{margin:0;background:#fff linear-gradient(180deg,var(--bg-top),#fff 460px) no-repeat;color:var(--ink);
+ font-family:"Hiragino Sans","Hiragino Kaku Gothic ProN","Noto Sans JP","Yu Gothic",sans-serif;line-height:1.7;
+ padding:28px max(16px,env(safe-area-inset-right)) 56px max(16px,env(safe-area-inset-left))}
+main{max-width:880px;margin:0 auto;display:flex;flex-direction:column;gap:22px}
+header{text-align:center}
+h1{margin:0;font-size:clamp(26px,5.6vw,40px);font-weight:900;letter-spacing:.04em}
+.lead{margin:0;color:var(--ink2);font-weight:700;font-size:clamp(13px,2.4vw,16px);letter-spacing:.06em}
+.stage{background:#fff;border-radius:26px;padding:clamp(14px,3vw,24px);box-shadow:0 10px 36px rgba(200,140,100,.18);display:flex;flex-direction:column;gap:14px}
+h2{margin:0;font-size:15px;font-weight:800;color:var(--ink2);letter-spacing:.08em}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:14px}
+a.card{display:flex;align-items:center;gap:14px;text-decoration:none;color:var(--ink);border-radius:20px;padding:16px 18px;
+ box-shadow:0 8px 18px rgba(30,30,60,.12);transition:transform .15s ease;-webkit-tap-highlight-color:transparent}
+a.card:hover{transform:translateY(-3px)}a.card:active{transform:scale(.98)}
+a.card:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.ic{font-size:44px;line-height:1;flex:none}
+.tx{min-width:0;flex:1}
+.nm{font-size:20px;font-weight:900;line-height:1.35}
+.ds{font-size:13px;font-weight:700;line-height:1.5;margin-top:2px}
+.go{font-size:26px;font-weight:900;flex:none}
+.note{text-align:center;font-size:12px;color:var(--ink2);margin:0}
+@media (prefers-reduced-motion:reduce){a.card{transition:none}}
+</style>
+</head>
+<body>
+<main>
+<header>
+ <h1>まなびゲーム ひろば</h1>
+ <p class="lead">〜あそびながら、中学受験の力をつけよう〜</p>
+</header>
+<div id="list" style="display:contents"></div>
+<p class="note">ゲームの記録は、それぞれのゲームのなかに保存されます。</p>
+</main>
+<script>
+/* ゲームを増やすときは、GAMES に1行足すだけ。 */
+const BASE='https://ainotenoue.github.io/';
+const SUBJECTS=['国語','算数','社会'];
+const GAMES=[
+ {subject:'国語',repo:'goku-dojo',name:'Wild Word World',desc:'国語の語句問題を理解する学習ゲーム',icon:'📖',a:'#ffe9cf',b:'#ffd9a8'},
+ {subject:'算数',repo:'noudo-lab',name:'濃度ラボ',desc:'算数の濃度問題を「のびちぢみ」で理解する学習ゲーム',icon:'🧪',a:'#d3f1bf',b:'#b3e394'},
+ {subject:'社会',repo:'geo-explorer',name:'Geo Explorer',desc:'日本地理の特色を理解する学習ゲーム',icon:'🗾',a:'#cdeaf6',b:'#a8d8ec'},
+ {subject:'社会',repo:'boeki-hunter',name:'TRADE HUNTER',desc:'地理。日本の貿易の特徴を覚える学習ゲーム',icon:'🚢',a:'#ddd6f2',b:'#c4b8e6'}
+];
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+document.getElementById('list').innerHTML=SUBJECTS.map(sub=>{
+ const g=GAMES.filter(x=>x.subject===sub);if(!g.length)return'';
+ return '<section class="stage"><h2>'+sub+'</h2><div class="grid">'+g.map(x=>
+  '<a class="card" href="'+BASE+esc(x.repo)+'/" style="background:linear-gradient(145deg,'+x.a+','+x.b+')">'+
+  '<span class="ic" aria-hidden="true">'+x.icon+'</span><span class="tx"><span class="nm">'+esc(x.name)+'</span><div class="ds">'+esc(x.desc)+'</div></span><span class="go" aria-hidden="true">›</span></a>').join('')+'</div></section>';
+}).join('');
+</script>
+</body>
+</html>
