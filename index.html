@@ -29,6 +29,8 @@ a.card:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
 .nm{font-size:20px;font-weight:900;line-height:1.35}
 .ds{font-size:13px;font-weight:700;line-height:1.5;margin-top:2px}
 .go{font-size:26px;font-weight:900;flex:none}
+a.card.pic{padding:0;overflow:hidden;display:block;aspect-ratio:900/539}
+a.card.pic img{display:block;width:100%;height:100%;object-fit:cover}
 .note{text-align:center;font-size:12px;color:var(--ink2);margin:0}
 @media (prefers-reduced-motion:reduce){a.card{transition:none}}
 </style>
@@ -43,11 +45,12 @@ a.card:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
 <p class="note">ゲームの記録は、それぞれのゲームのなかに保存されます。</p>
 </main>
 <script>
-/* ゲームを増やすときは、GAMES に1行足すだけ。 */
+/* ゲームを増やすときは、GAMES に1行足すだけ。
+   img を指定すると、その画像1枚だけのカードになる（画像は img/ フォルダに置く。横長 900×539 程度推奨）。 */
 const BASE='https://ainotenoue.github.io/';
 const SUBJECTS=['国語','算数','社会'];
 const GAMES=[
- {subject:'国語',repo:'goku-dojo',name:'Wild Word World',desc:'国語の語句問題を理解する学習ゲーム',icon:'📖',a:'#ffe9cf',b:'#ffd9a8'},
+ {subject:'国語',repo:'goku-dojo',name:'Wild Word World',desc:'国語の語句問題を理解する学習ゲーム',icon:'📖',a:'#ffe9cf',b:'#ffd9a8',img:'img/wild-word-world.webp'},
  {subject:'算数',repo:'noudo-lab',name:'濃度ラボ',desc:'算数の濃度問題を「のびちぢみ」で理解する学習ゲーム',icon:'🧪',a:'#d3f1bf',b:'#b3e394'},
  {subject:'社会',repo:'geo-explorer',name:'Geo Explorer',desc:'日本地理の特色を理解する学習ゲーム',icon:'🗾',a:'#cdeaf6',b:'#a8d8ec'},
  {subject:'社会',repo:'boeki-hunter',name:'TRADE HUNTER',desc:'地理。日本の貿易の特徴を覚える学習ゲーム',icon:'🚢',a:'#ddd6f2',b:'#c4b8e6'}
@@ -55,7 +58,8 @@ const GAMES=[
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 document.getElementById('list').innerHTML=SUBJECTS.map(sub=>{
  const g=GAMES.filter(x=>x.subject===sub);if(!g.length)return'';
- return '<section class="stage"><h2>'+sub+'</h2><div class="grid">'+g.map(x=>
+ return '<section class="stage"><h2>'+sub+'</h2><div class="grid">'+g.map(x=>x.img?
+  '<a class="card pic" href="'+BASE+esc(x.repo)+'/" style="background:'+x.a+'"><img src="'+esc(x.img)+'" alt="'+esc(x.name)+'：'+esc(x.desc)+'" width="900" height="539"></a>':
   '<a class="card" href="'+BASE+esc(x.repo)+'/" style="background:linear-gradient(145deg,'+x.a+','+x.b+')">'+
   '<span class="ic" aria-hidden="true">'+x.icon+'</span><span class="tx"><span class="nm">'+esc(x.name)+'</span><div class="ds">'+esc(x.desc)+'</div></span><span class="go" aria-hidden="true">›</span></a>').join('')+'</div></section>';
 }).join('');
