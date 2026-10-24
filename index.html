@@ -19,7 +19,8 @@ h1{margin:0;font-size:clamp(26px,5.6vw,40px);font-weight:900;letter-spacing:.04e
 .lead{margin:0;color:var(--ink2);font-weight:700;font-size:clamp(13px,2.4vw,16px);letter-spacing:.06em}
 .stage{background:#fff;border-radius:26px;padding:clamp(14px,3vw,24px);box-shadow:0 10px 36px rgba(200,140,100,.18);display:flex;flex-direction:column;gap:14px}
 h2{margin:0;font-size:15px;font-weight:800;color:var(--ink2);letter-spacing:.08em}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:14px}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(12px,2.4vw,20px)}
+@media (max-width:520px){.grid{grid-template-columns:1fr}}
 a.card{display:flex;align-items:center;gap:14px;text-decoration:none;color:var(--ink);border-radius:20px;padding:16px 18px;
  box-shadow:0 8px 18px rgba(30,30,60,.12);transition:transform .15s ease;-webkit-tap-highlight-color:transparent}
 a.card:hover{transform:translateY(-3px)}a.card:active{transform:scale(.98)}
@@ -56,9 +57,10 @@ const GAMES=[
  {subject:'社会',repo:'boeki-hunter',name:'TRADE HUNTER',desc:'地理。日本の貿易の特徴を覚える学習ゲーム',icon:'🚢',a:'#eaebec',b:'#eaebec',img:'img/trade-hunter.webp'}
 ];
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
-document.getElementById('list').innerHTML=SUBJECTS.map(sub=>{
- const g=GAMES.filter(x=>x.subject===sub);if(!g.length)return'';
- return '<section class="stage"><h2>'+sub+'</h2><div class="grid">'+g.map(x=>x.img?
+/* 見出しなしで全ゲームを1つの枠に並べる（教科順） */
+document.getElementById('list').innerHTML=[0].map(()=>{
+ const g=SUBJECTS.flatMap(sub=>GAMES.filter(x=>x.subject===sub));
+ return '<section class="stage"><div class="grid">'+g.map(x=>x.img?
   '<a class="card pic" href="'+BASE+esc(x.repo)+'/" style="background:'+x.a+'"><img src="'+esc(x.img)+'" alt="'+esc(x.name)+'：'+esc(x.desc)+'" width="900" height="539"></a>':
   '<a class="card" href="'+BASE+esc(x.repo)+'/" style="background:linear-gradient(145deg,'+x.a+','+x.b+')">'+
   '<span class="ic" aria-hidden="true">'+x.icon+'</span><span class="tx"><span class="nm">'+esc(x.name)+'</span><div class="ds">'+esc(x.desc)+'</div></span><span class="go" aria-hidden="true">›</span></a>').join('')+'</div></section>';
