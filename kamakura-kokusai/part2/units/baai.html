@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>場合の数｜鎌倉国際文理中学_問題分析 その2</title><style>:root{--ink:#24324c;--sub:#68768c;--blue:#4168a7;--bg:#f4f7fc}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Yu Gothic",sans-serif;line-height:1.75;-webkit-text-size-adjust:100%}
+main{max-width:850px;margin:auto;padding:20px max(16px,env(safe-area-inset-right)) 70px max(16px,env(safe-area-inset-left))}
+a{color:var(--blue)}.navtop{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}.back{text-decoration:none;font-weight:700;font-size:14px}
+.label{font-size:12px;font-weight:800;letter-spacing:.1em;color:var(--blue);margin:22px 0 0}
+h1{font-size:clamp(24px,4vw,34px);line-height:1.4;margin:6px 0}.where{display:inline-block;border-radius:999px;background:#eaf0fa;padding:3px 12px;font-size:13px;font-weight:800}
+.panel{background:#fff;border-radius:18px;padding:22px;margin:18px 0;box-shadow:0 5px 20px #30466b0b}h2{font-size:19px;margin:0 0 10px}
+.asks{border-left:4px solid var(--blue);background:#f1f6fd;border-radius:8px;padding:12px 14px}
+ul,ol{padding-left:1.4em;margin:6px 0}li{margin:6px 0}
+.ex{border:1px solid #e1e8f3;border-radius:14px;padding:14px 16px;margin:14px 0}
+.ex .q{font-weight:700}.ex .tag{font-size:12px;font-weight:800;color:var(--blue);letter-spacing:.06em}
+details{margin-top:10px}summary{display:inline-block;cursor:pointer;background:var(--blue);color:#fff;border-radius:10px;padding:8px 16px;font-weight:700;font-size:14px;list-style:none}
+summary::-webkit-details-marker{display:none}details[open] summary{background:#8ea6cf}
+summary:focus-visible{outline:3px solid #f2a85a;outline-offset:2px}
+.ans{background:#edf8f2;border-radius:12px;padding:12px 14px;margin-top:10px}.ans b{font-size:17px}
+.pit{background:#fff8e8;border-radius:12px;padding:12px 14px}
+.nav{display:flex;flex-wrap:wrap;gap:8px}.nav a{padding:7px 12px;border-radius:999px;background:#eaf0fa;text-decoration:none;font-size:13px;font-weight:700}.nav a.cur{background:var(--blue);color:#fff}
+.pn{display:flex;justify-content:space-between;gap:10px;margin-top:14px;font-weight:700;font-size:14px}.pn a{text-decoration:none}
+.note{font-size:12px;color:var(--sub)}@media(max-width:600px){.panel{padding:16px}}</style></head><body><main>
+<div class="navtop"><a class="back" href="../">← 問題分析 その2</a><a class="back" href="../../../">まなびゲーム ひろば</a></div>
+<p class="label">毎年出る単元の解説</p>
+<h1>🎲 場合の数</h1>
+<span class="where">大問2-(7)・3年連続で出題</span>
+
+<section class="panel"><h2>何が問われる問題か</h2><p class="asks"><strong>もれなく、重なりなく数える</strong>力が問われます。「並べる（順番が関係ある）」のか「選ぶ（順番が関係ない）」のかを区別できるか、0が先頭に来られないなどの条件に気づけるかがポイントです。</p>
+<h2 style="margin-top:18px">3年間の出題のされ方</h2><ul><li>R6：4つの数字で作る4けたの数を小さい順に並べたときの何番目</li><li>R7：0をふくむ4つの数字で作る4けたの数の個数</li><li>R8：5チームの総当たり戦の試合数</li></ul></section>
+
+<section class="panel"><h2>解き方のポイント</h2><ul><li>並べる → 位ごとに「何通り」をかけ算する</li><li>0は先頭（いちばん上の位）に使えない</li><li>総当たり（2つを選ぶ）→ チーム数×（チーム数−1）÷2</li><li>「何番目」は、先頭の数字ごとに何個ずつあるかをまとめて数える</li></ul></section>
+
+<section class="panel"><h2>例題</h2><p class="note">過去問の転載ではなく、出題の型をもとに作ったオリジナル問題です。易しい順に並んでいます。</p><div class="ex"><div class="tag">例題1</div><p class="q">0、1、2、3、4の5まいのカードから3まいを並べて3けたの整数をつくります。全部で何通りできますか。</p>
+<details><summary>答えと考え方を見る</summary><div class="ans">答え：<b>48通り</b><ol><li>百の位：0以外の4通り</li><li>十の位：残り4通り</li><li>一の位：残り3通り</li><li>4×4×3＝48</li></ol></div></details></div><div class="ex"><div class="tag">例題2</div><p class="q">6チームが総当たり戦をします。試合は全部で何試合ですか。</p>
+<details><summary>答えと考え方を見る</summary><div class="ans">答え：<b>15試合</b><ol><li>1チームあたり5試合 → 6×5＝30</li><li>A対BとB対Aは同じ試合なので ÷2</li><li>30÷2＝15</li></ol></div></details></div><div class="ex"><div class="tag">例題3</div><p class="q">1、2、3、4、5の5まいのカードから4まいを並べて4けたの整数をつくり、小さい順に並べます。30番目の数は何ですか。</p>
+<details><summary>答えと考え方を見る</summary><div class="ans">答え：<b>2154</b><ol><li>千の位が1の数：4×3×2＝24個（1〜24番目）</li><li>25番目からは千の位が2</li><li>2134、2135、2143、2145、2153、2154 → 30番目は2154</li></ol></div></details></div></section>
+
+<section class="panel"><h2>つまずきやすいポイント</h2><p class="pit">0を先頭に置いてしまう、総当たりで÷2を忘れる、のが2大ミスです。「何番目」は書き出しを始める前に、まとまりごとの個数を計算しておくと速く正確になります。</p></section>
+
+<section class="panel"><h2>ほかの単元</h2><nav class="nav" aria-label="単元"><a href="gyakusan.html">□を求める計算</a><a href="hirei.html">比例の式</a><a href="heikin.html">平均</a><a href="wariai.html">割合・売買</a><a href="shokuensui.html">食塩水</a><a href="baai.html" class=cur aria-current=page>場合の数</a><a href="en.html">円・おうぎ形の面積</a><a href="rittai.html">立体</a><a href="hayasa.html">速さとグラフ</a></nav><div class="pn"><a href="shokuensui.html">‹ 食塩水</a><a href="en.html">円・おうぎ形の面積 ›</a></div></section>
+</main></body></html>

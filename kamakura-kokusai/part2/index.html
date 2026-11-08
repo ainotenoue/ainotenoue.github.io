@@ -37,6 +37,8 @@ ol.points,ol.plan{padding-left:1.4em;margin:6px 0}
 ol.points li,ol.plan li{margin:8px 0}
 ol.points li b,ol.plan li b{color:var(--ink)}
 .notice{border-left:4px solid #dba456;padding:10px 14px;background:#fff9ee;border-radius:6px;font-size:13px}
+.units{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.unit{display:flex;gap:10px;align-items:center;text-decoration:none;color:var(--ink);background:#f1f6fd;border-radius:12px;padding:12px 14px;font-size:14px}.unit:active{transform:scale(.98)}.unit .ui{font-size:24px}.unit small{display:block;color:var(--sub);font-weight:700}
+@media(max-width:650px){.units{grid-template-columns:1fr}}
 .footer{font-size:12px;color:var(--sub);margin-top:25px}
 @media(max-width:650px){.cards{grid-template-columns:1fr}.panel{padding:16px}th,td{padding:8px 7px;font-size:13px}}
 </style></head><body><main>
@@ -55,7 +57,7 @@ ol.points li b,ol.plan li b{color:var(--ink)}
 <section class="panel">
  <p class="key">いちばんの特徴は「形式が3年間ほぼ完全に同じ」こと。大問の並びだけでなく、大問2の10問の単元の順番までそろっています。</p>
  <nav class="toc" aria-label="もくじ">
-  <a href="#structure">全体の構成</a><a href="#q1">大問1</a><a href="#q2">大問2</a><a href="#q3">大問3</a><a href="#q4">大問4</a><a href="#q5">大問5</a><a href="#trend">傾向のまとめ</a><a href="#plan">対策の優先順位</a>
+  <a href="#structure">全体の構成</a><a href="#q1">大問1</a><a href="#q2">大問2</a><a href="#q3">大問3</a><a href="#q4">大問4</a><a href="#q5">大問5</a><a href="#units">単元の解説</a><a href="#trend">傾向のまとめ</a><a href="#plan">対策の優先順位</a>
  </nav>
 </section>
 
@@ -136,11 +138,17 @@ ol.points li b,ol.plan li b{color:var(--ink)}
  </div>
 </section>
 
+<section class="panel" id="units">
+ <h2>毎年出る単元の解説と例題</h2>
+ <p class="muted">3年連続で出ている9つの単元について、「何が問われる問題か」の解説とオリジナル例題をまとめました。</p>
+ <div class="units"><a class="unit" href="units/gyakusan.html"><span class="ui">🔢</span><span><b>□を求める計算</b><small>大問2-(2)</small></span></a><a class="unit" href="units/hirei.html"><span class="ui">📈</span><span><b>比例の式（y＝決まった数×x）</b><small>大問2-(3)</small></span></a><a class="unit" href="units/heikin.html"><span class="ui">⚖️</span><span><b>平均</b><small>大問2-(4)</small></span></a><a class="unit" href="units/wariai.html"><span class="ui">🏷️</span><span><b>割合・売買（割引と消費税）</b><small>大問2-(5)</small></span></a><a class="unit" href="units/shokuensui.html"><span class="ui">🧪</span><span><b>食塩水</b><small>大問2-(6)</small></span></a><a class="unit" href="units/baai.html"><span class="ui">🎲</span><span><b>場合の数</b><small>大問2-(7)</small></span></a><a class="unit" href="units/en.html"><span class="ui">⭕</span><span><b>円・おうぎ形の面積</b><small>大問2-(9)・大問4</small></span></a><a class="unit" href="units/rittai.html"><span class="ui">🧊</span><span><b>立体（角柱の体積・展開図）</b><small>大問2-(10)</small></span></a><a class="unit" href="units/hayasa.html"><span class="ui">🏃</span><span><b>速さとグラフ</b><small>大問3</small></span></a></div>
+</section>
+
 <section class="panel" id="trend">
  <h2>7. 傾向のまとめ</h2>
  <ol class="points">
   <li><b>形式が完全に固定。</b>大問の並びも大問2の単元順もほぼ同じなので、過去問演習がそのまま効く。</li>
-  <li><b>毎年必ず出る単元：</b>□を求める計算、比例の式、平均、割引＋消費税、食塩水、場合の数、円の面積（3.14）、立体、速さのグラフ。</li>
+  <li><b>毎年必ず出る単元：</b>□を求める計算、比例の式、平均、割引＋消費税、食塩水、場合の数、円の面積（3.14）、立体、速さのグラフ。（<a href="#units">単元ごとの解説</a>）</li>
   <li><b>難しさは基礎〜標準。</b>難問は少なく、ミスなく速く解く力が合否を分ける。</li>
   <li><b>生活の場面を描いた文章題。</b>掃除・花だん・買い物・硬貨など、長めの文章を読んで図にする力が必要。</li>
   <li><b>3.14の計算量が多い。</b>大問2(9)と大問4で毎年出る。3.14をまとめる工夫が必須。</li>
