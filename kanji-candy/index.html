@@ -14,6 +14,7 @@
     --paper:#ffffff; --box:200px;
   }
   *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body,button,a{touch-action:manipulation}  /* ダブルタップでの拡大を止める */
   html,body{margin:0;height:100%;color:var(--ink);overflow:hidden;
     font-family:"Zen Maru Gothic",system-ui,sans-serif;
     -webkit-user-select:none;user-select:none;-webkit-touch-callout:none;overscroll-behavior:none}
@@ -669,6 +670,17 @@ function next(){
         <div class="bar"><button class="primary" data-close>やったね！</button></div>`)}
   },300);
 }
+// ===== 画面の拡大を止める（iPadのSafariはviewportの指定だけでは止まらない）=====
+['gesturestart','gesturechange','gestureend'].forEach(t=>
+  document.addEventListener(t,e=>e.preventDefault(),{passive:false}));      // ピンチ拡大
+document.addEventListener('touchmove',e=>{
+  if(e.touches.length>1||(e.scale&&e.scale!==1))e.preventDefault()},{passive:false});   // 2本指
+let lastTouch=0;
+document.addEventListener('touchend',e=>{                                     // すばやい2回タップ
+  const now=Date.now();
+  if(now-lastTouch<350&&!e.target.closest('textarea,input,button,a,canvas'))e.preventDefault();  // ボタン連打・書く欄はそのまま
+  lastTouch=now},{passive:false});
+document.addEventListener('dblclick',e=>e.preventDefault(),{passive:false});
 renderHome();
 </script>
 </body>
