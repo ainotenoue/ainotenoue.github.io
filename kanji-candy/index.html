@@ -160,6 +160,9 @@
   .shopchip.lock{opacity:.55}
   .qtag{display:inline-block;margin-left:6px;font-size:12px;font-weight:700;color:#8a6d00;background:var(--yellow);border-radius:99px;padding:2px 10px}
 
+  .note{margin:4px 0 0;font-size:12px;color:var(--sub);text-align:center}
+  .reset{margin-top:4px;background:none;border:0;box-shadow:none;color:var(--sub);font-size:11px;font-weight:500;text-decoration:underline;padding:6px 10px;min-width:0}
+  .reset:active{transform:none;box-shadow:none}
   /* 図鑑 */
   #zukan .card{flex:1;min-height:0;overflow:auto}
   .zhead{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:8px}
@@ -230,6 +233,7 @@
         </div>
       </div>
       <div class="shops" id="shops"></div>
+      <p class="note">進み具合は、この端末のブラウザに保存されます。<br><button class="reset" id="resetBtn">記録をリセット</button></p>
     </div>
   </section>
 
@@ -478,6 +482,14 @@ function modal(html){$('mbox').innerHTML=html;$('modal').classList.add('on')}
 function closeModal(){$('modal').classList.remove('on')}
 $('modal').addEventListener('click',e=>{if(e.target.id==='modal'||e.target.dataset.close!==undefined)closeModal()});
 
+// ===== 記録のリセット =====
+$('resetBtn').onclick=()=>{
+  modal(`<h3>記録をリセット</h3>
+    <p>すべての記録（キャンディ瓶・図鑑・チョコ・お店・ペンの色）を消して、はじめからにします。<br>よろしいですか？</p>
+    <div class="bar"><button class="ng" id="rsYes">リセットする</button><button data-close>やめる</button></div>`);
+  $('rsYes').onclick=()=>{S={v:1,p:{},cleared:[],choco:{n:0,last:'',streak:0},pen:0};save();closeModal();renderHome()};
+};
+
 // ===== バックアップ =====
 function code(){return 'KC1:'+btoa(unescape(encodeURIComponent(JSON.stringify(S))))}
 $('backupBtn').onclick=()=>{
@@ -636,7 +648,7 @@ function record(q){
   if(r.c===1)return '';            // 同じ日の2回目：数えない
   r.c=1;r.d=t;save();return '';
 }
-$('okBtn').onclick=()=>{let m='';if(!missed){okCount++;updateScore();m=record(queue[idx])}chime(true);stamp(m);next()}; // ★は1回目で正解したときだけ
+$('okBtn').onclick=()=>{let m='';if(!missed){okCount++;updateScore();m=record(queue[idx])}chime(false);stamp(m);next()}; // ★は1回目で正解したときだけ
 $('doneBtn').onclick=()=>{chime(false);next()};
 // もう一度：今の問題を最初から解き直す（正しい字はかくす）
 $('againQBtn').onclick=()=>{clearAll();setOverlay(false);setState('write');$('msg').textContent='もう一度チャレンジ！'};
