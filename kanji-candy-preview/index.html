@@ -366,6 +366,16 @@
     #start .homeside{width:58%}
     #start .jar{width:120px;max-width:80%}
   }
+
+  /* === v1.5 alignment: shop and start button share a top edge === */
+  #start .homegrid{align-items:stretch}
+  #start .shopcard{justify-content:flex-start;padding-top:18px}
+  #start .homeside{justify-content:flex-start;padding-top:0}
+  #start .jar{flex:1 1 auto}
+  @media(max-height:760px){
+    #start .shopcard{padding-top:10px}
+    #start .homeside{justify-content:flex-start}
+  }
 </style>
 </head>
 <body>
