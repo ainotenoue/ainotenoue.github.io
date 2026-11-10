@@ -199,6 +199,36 @@
   .stamp b:nth-of-type(4){color:var(--purple);transform:translate(-32vmin,28vmin)}
   .stamp.go{animation:st .65s ease-out}
   @keyframes st{0%{opacity:0;transform:scale(1.6)}30%{opacity:.9;transform:scale(1)}100%{opacity:0;transform:scale(1.04)}}
+
+  /* === Design polish v1.1 / writing screen only === */
+  #play .card{padding:16px 22px 18px}
+  #play .qhead{padding-bottom:8px}
+  #play .qno{font-size:14px;padding:4px 16px;letter-spacing:.035em}
+  #play .q{margin:8px 0 6px;line-height:1.45}
+  #play .stage{gap:22px;align-items:flex-start}
+  #play .collabel{height:24px;line-height:24px;font-size:15px;letter-spacing:.05em}
+  #play .col{gap:8px}
+  #play .divider{margin-top:32px;border-left-width:2px;opacity:.7}
+  #play .cell,#play .anscell{border-radius:20px}
+  #play .cell{box-shadow:0 4px 0 #d8cef8}
+  #play .anscell{box-shadow:0 3px 0 #f5e4f5}
+  #play .show .anscell{box-shadow:0 4px 0 #e9b8ed}
+  #play .side{margin-top:32px;grid-template-rows:minmax(0,1fr) minmax(0,1fr);gap:12px}
+  #play .side .up{align-items:flex-end}
+  #play .side .main{height:100px;border-radius:24px;font-size:22px}
+  #play .side .pair{gap:10px}
+  #play .side .pair .main{font-size:20px;border-radius:24px}
+  #play .side .low{gap:10px}
+  #play .side .low button{height:70px;border-radius:22px}
+  #play .side .ghostbtn{height:58px;border-radius:22px}
+  #play .side button{line-height:1.25}
+  #play .msg{height:32px;min-height:32px;display:flex;align-items:center;justify-content:center;margin-top:8px;font-size:14px;line-height:1.35;letter-spacing:.01em}
+  @media(max-height:700px){
+    #play .card{padding:10px 16px}
+    #play .qhead{padding-bottom:2px}
+    #play .q{margin:3px 0}
+    #play .msg{height:24px;min-height:24px;font-size:12px;margin-top:3px}
+  }
 </style>
 </head>
 <body>
