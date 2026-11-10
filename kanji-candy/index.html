@@ -467,7 +467,7 @@ $('zukanBtn').onclick=()=>{
     const g=got.filter(q=>q.shop===i);if(!g.length)return'';
     return `<div class="zshop">${sh.ic} ${sh.name}（${g.length}個）</div><div class="zgrid">`+
       g.map(q=>`<div class="zc"><div class="e">${kind(q)}</div><div class="k">${q.a}</div></div>`).join('')+'</div>'}).join(''):
-    '<div class="zempty">まだキャンディはありません。<br>同じ問題に、次の日以降もう一度正解すると図鑑に入るよ。</div>';
+    '<div class="zempty">まだキャンディはありません。<br>どんどん解いて、キャンディを集めよう！</div>';
   show('zukan');
 };
 $('zBack').onclick=()=>{renderHome();show('start')};
@@ -526,7 +526,7 @@ function renderQ(){
   const q=queue[idx],s=q.s,a=q.a,pr=S.p[q.key]||{c:0};
   setState('write');setOverlay(false);$('msg').textContent='';missed=false;
   $('qno').innerHTML=`第 ${idx+1} 問 / ${queue.length}`+(q.g?'　♪ 同じ読みペア':'')+
-    (pr.c>=2?'<span class="qtag">図鑑にあるよ</span>':pr.c===1&&pr.d<today()?'<span class="qtag">🍬 正解で図鑑入り！</span>':'');
+    (pr.c>=2?'<span class="qtag">図鑑にあるよ</span>':'');
   $('bar').style.width=(idx/queue.length*100)+'%';
   $('qtext').innerHTML=s.replace(/\[(.+?)\]/,'<span class="kata">$1</span>');
   const chars=[...a];
@@ -625,13 +625,15 @@ function chime(big){
   }catch(e){}
 }
 function stamp(msg){$('stampMsg').textContent=msg||'';const s=$('stamp');s.classList.remove('go');void s.offsetWidth;s.classList.add('go')}
-// 正解の記録：1回目→「あした以降もう一度」、次の日以降の2回目→図鑑入り。同じ日の2回目は数えない
+// 正解の記録（ルールは画面に出さない）
+// ・正解が2回つづいたら図鑑入り。ただし2回目は1回目と別の日でないと数えない
+// ・1回正解したあとにまちがえたら、カウントは0から（まちがいの記録は「書き直す」で行う）
 function record(q){
   const r=P(q),t=today();
   if(r.c>=2)return '';
   if(r.c===1&&r.d<t){r.c=2;r.d=t;save();sess.newZ++;return '🍭 図鑑に入ったよ！'}
-  if(r.c===1)return 'あした以降にもう一度正解で図鑑へ';
-  r.c=1;r.d=t;save();return 'あした以降にもう一度正解で図鑑へ';
+  if(r.c===1)return '';            // 同じ日の2回目：数えない
+  r.c=1;r.d=t;save();return '';
 }
 $('okBtn').onclick=()=>{let m='';if(!missed){okCount++;updateScore();m=record(queue[idx])}chime(true);stamp(m);next()}; // ★は1回目で正解したときだけ
 $('doneBtn').onclick=()=>{chime(false);next()};
