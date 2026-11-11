@@ -818,6 +818,33 @@ body:has(#start.active) .progress{width:min(100%,1200px);margin:0 auto;height:0;
   #start .shopchip{height:38px}
   #start .shopchip .ic{font-size:18px}
 }
+
+/* v3.1 iPad screenshot corrections: prevent inherited label transforms from moving door inset */
+#start .shopcard:before{
+  content:"";transform:none!important;left:13%!important;right:13%!important;
+  width:auto!important;height:auto!important;top:94px!important;bottom:15px!important;
+  box-sizing:border-box;z-index:0;pointer-events:none;
+  border:3px solid #c5ace1;border-radius:100px 100px 12px 12px;
+  background:linear-gradient(122deg,#f4faff 0 35%,#eaf4ff 36% 42%,#f9fcff 43% 100%);
+  box-shadow:inset 0 0 0 3px #fff;
+}
+#start .shopcard:after{transform:none!important;z-index:2}
+#start .shopcard{overflow:hidden;isolation:isolate}
+#start .shopno,#start .shopname,#start .jar,#start .jarnum{z-index:2}
+#start .jar{width:min(64%,235px)!important;max-width:235px!important;
+  max-height:300px!important;min-height:140px!important;
+  margin:14px auto 10px!important;display:flex;align-items:center;justify-content:center}
+#start .jar svg{width:100%!important;height:100%!important;max-height:300px!important}
+#start .jarnum{margin-top:auto!important;margin-bottom:16px!important}
+#start .shopcard:before{background:linear-gradient(125deg,#f2faff,#e7f4ff 44%,#f9fcff 46%)}
+#start .homegrid{max-width:1030px!important}
+#start .shops{max-width:1030px!important}
+@media(max-height:760px){
+  #start .shopcard:before{top:63px!important;bottom:8px!important}
+  #start .jar{width:min(56%,150px)!important;min-height:60px!important;max-height:145px!important;margin:4px auto!important}
+  #start .jar svg{max-height:145px!important}
+  #start .jarnum{margin-bottom:4px!important}
+}
 </style>
 </head>
 <body>
