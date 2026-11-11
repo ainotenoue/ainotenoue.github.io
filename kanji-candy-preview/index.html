@@ -1059,10 +1059,41 @@ body:has(#start.active){background:
  #start .candy-storefront{width:93%!important}
  #start:before,#start:after{width:24px;height:42px}
 }
+
+/* v3.7 — single semantic building, joined roof and wall; balanced button type */
+.store-building{display:contents}
+body:has(#start.active) header{
+ width:87%!important;max-width:1220px!important;box-sizing:border-box!important;
+ margin:0 auto!important;padding:7px 18px 6px!important;
+ background:#fff8e9!important;border:3px solid #fff!important;border-bottom:0!important;
+ border-radius:22px 22px 0 0!important;box-shadow:none!important;min-height:74px!important}
+body:has(#start.active) header .logo-s{display:none!important}
+body:has(#start.active) header .meta{width:100%!important;display:flex!important;justify-content:space-between!important}
+body:has(#start.active) header #penPill{display:none!important}
+body:has(#start.active) .progress{display:none!important}
+#start .candy-storefront{width:87%!important;max-width:1220px!important;
+ border-top:0!important;border-radius:0 0 22px 22px!important;
+ margin-top:0!important;padding-top:0!important}
+#start .store-awning{margin-top:-3px!important}
+#start .shopcard .jar{width:min(100%,365px)!important}
+#start #startBtn{font-size:clamp(20px,2.2vw,30px)!important;letter-spacing:.09em!important;font-weight:800!important}
+#start .rewardrow .choco{font-size:clamp(14px,1.3vw,20px)!important;line-height:1.3!important}
+#start .rewardrow #zukanBtn{font-size:clamp(13px,1.2vw,19px)!important;font-weight:800!important;white-space:nowrap!important}
+body:has(#start.active) header .pill{font-size:clamp(13px,1.25vw,18px)!important;font-weight:800!important}
+#start .pens .t{font-size:clamp(12px,1.1vw,17px)!important;line-height:1.35!important}
+#start .shopno{font-size:clamp(12px,1vw,16px)!important}
+#start .shopname{font-size:clamp(19px,1.7vw,26px)!important}
+@media(max-width:900px){
+ body:has(#start.active) header,#start .candy-storefront{width:93%!important}
+ body:has(#start.active) header{min-height:54px!important;padding:4px 10px!important}
+ #start #startBtn{font-size:20px!important}
+ #start .rewardrow #zukanBtn{font-size:12px!important}
+}
 </style>
 </head>
 <body>
 <div class="app">
+  <div class="store-building" aria-label="キャンディショップの建物">
   <header>
     <h1 class="logo-s"><span class="logo-crop"><img src="../img/kanji-candy-logo.png" alt="KANJI CANDY" class="brand-logo-img"></span></h1>
     <div class="meta">
@@ -1097,6 +1128,8 @@ body:has(#start.active){background:
       <p class="note">進み具合は、この端末のブラウザに保存されます。 <button class="reset" id="backupBtn">バックアップ</button><span class="note-sep">｜</span><button class="reset" id="resetBtn">記録をリセット</button></p>
     </div>
   </section>
+
+  </div><!-- /store-building: shared roof, awning and storefront -->
 
   <!-- 図鑑 -->
   <section class="screen" id="zukan">
