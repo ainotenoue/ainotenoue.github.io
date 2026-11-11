@@ -1309,6 +1309,41 @@ body:has(#start.active) header{
  #start .shopcard .jar{transform:translateY(9px)!important}
  #start .shopcard .jarnum{transform:translateY(8px)!important}
 }
+
+/* v4.7 — matching masonry piers on both sides */
+#start .candy-storefront{
+ background:linear-gradient(90deg,
+ #a76a53 0 8px,#e8ac8c 8px 25px,
+ #fff9ed 25px calc(100% - 25px),
+ #e8ac8c calc(100% - 25px) calc(100% - 8px),
+ #a76a53 calc(100% - 8px))!important;
+}
+#start .candy-storefront:before,
+#start .candy-storefront:after{
+ content:""!important;
+ position:absolute!important;
+ z-index:1!important;
+ top:53px!important;
+ bottom:65px!important;
+ width:21px!important;
+ pointer-events:none!important;
+ background:repeating-linear-gradient(180deg,
+ #f1c3a4 0 30px,#a76a53 30px 34px,
+ #e8ac8c 34px 62px,#a76a53 62px 66px)!important;
+}
+#start .candy-storefront:before{
+ left:0!important;right:auto!important;
+ border-left:0!important;border-right:3px solid #935842!important;
+}
+#start .candy-storefront:after{
+ right:0!important;left:auto!important;
+ border-right:0!important;border-left:3px solid #935842!important;
+}
+@media(max-height:760px){
+ #start .candy-storefront:before,#start .candy-storefront:after{
+ top:31px!important;bottom:49px!important;width:14px!important;
+ }
+}
 </style>
 </head>
 <body>
@@ -1339,7 +1374,7 @@ body:has(#start.active) header{
         </div>
         <div class="homeside">
           <div class="window-actions"><button class="primary" id="startBtn">OPEN！</button>
-          <div class="rewardrow"><div class="choco" id="choco"></div><button id="zukanBtn">📖 キャンディ図鑑</button></div></div>
+          <div class="rewardrow"><div class="choco" id="choco"></div><button id="zukanBtn">🍬 キャンディ図鑑</button></div></div>
           <div class="pens"><div class="t">ペンの色（お店をクリアすると増えるよ）</div><div class="dots" id="pens"></div></div>
           
         </div>
@@ -1486,7 +1521,8 @@ const SHOP_DEF=[
   ['キャラメル','🍮'],['ブルーベリー','🫐'],['さくら','🌸'],['マンゴー','🥭'],['ラムネ','💎'],
   ['はちみつ','🍯'],['ココア','☕'],['ゆず','🟡'],['パイン','🍍'],['にじいろ','🌈']];
 const SHOP_BANKS=[BANK];               // 2店目以降は問題ができしだい追加
-const SHOPS=SHOP_DEF.map(([name,ic],i)=>({name:name+'屋さん',ic,qs:(SHOP_BANKS[i]||[])}));
+const SHOP_DISPLAY_NAMES=['ストロベリー','グレープ','ソーダ','レモン','メロン','ピーチ','オレンジ','アップル','ミルク','チョコミント','キャラメル','ブルーベリー','チェリー','マンゴー','ラムネ','ハニー','ココア','ユズ','パイナップル','レインボー'];
+const SHOPS=SHOP_DEF.map(([name,ic],i)=>({name:SHOP_DISPLAY_NAMES[i]||name,ic,qs:(SHOP_BANKS[i]||[])}));
 const ALL=[];
 SHOPS.forEach((sh,si)=>sh.qs.forEach(q=>ALL.push({s:q[0],a:q[1],g:q[2]||'',shop:si,
   key:q[1]+'|'+(q[0].match(/\[(.+?)\]/)||['',''])[1]})));
