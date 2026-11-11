@@ -618,6 +618,57 @@
     #start .shops{gap:3px;padding:5px 3px}
     #start .shopchip{font-size:9px}
   }
+
+  /* === Storefront v2.1: one signboard row and structural brick foundation === */
+  body:has(#start.active) header{display:grid;grid-template-columns:minmax(125px,1fr) auto minmax(125px,1fr);
+    align-items:center;min-height:99px;padding:9px 22px 8px;gap:12px}
+  body:has(#start.active) header .logo-s{grid-column:2;grid-row:1;margin:0;justify-self:center;line-height:1}
+  body:has(#start.active) header .logo-s .logo-crop{width:390px;height:76px;max-width:45vw}
+  body:has(#start.active) header .logo-s .logo-crop img{width:390px;height:390px}
+  body:has(#start.active) header .meta{display:contents}
+  body:has(#start.active) header .pill.home{grid-column:1;grid-row:1;justify-self:start}
+  body:has(#start.active) header #score{grid-column:3;grid-row:1;justify-self:end}
+  body:has(#start.active) header #penPill{display:none}
+  body:has(#start.active) .progress{height:5px}
+  #start .candy-storefront{padding-top:0}
+  #start .store-awning{margin-top:0;margin-bottom:12px}
+  #start .homegrid{margin-bottom:12px}
+  #start .shops{max-width:1050px;position:relative;box-sizing:border-box;
+    display:grid;grid-template-columns:repeat(10,minmax(0,1fr));grid-template-rows:repeat(2,1fr);
+    width:100%;gap:0;overflow:visible;flex:none;margin:0 auto 4px;
+    padding:8px 10px 10px;border:0;border-top:7px solid #c79f92;border-bottom:9px solid #b8897b;
+    border-radius:5px 5px 9px 9px;background:#e9c6b8;
+    box-shadow:inset 0 3px 0 #f7e3d8,0 6px 0 #d3a99a,0 9px 0 #f5e0d3}
+  #start .shops:before,#start .shops:after{content:"";position:absolute;top:8px;bottom:10px;width:10px;
+    background:repeating-linear-gradient(0deg,#c89e92 0 4px,#f6e1d6 4px 8px);pointer-events:none}
+  #start .shops:before{left:0}#start .shops:after{right:0}
+  #start .shopchip{box-sizing:border-box;width:100%;max-width:100%;min-width:0;height:54px;
+    margin:0;border:2px solid #d8b4a6;border-radius:3px;background:#fffdf8;
+    box-shadow:inset 0 0 0 2px #fff;transform:none;padding:3px 1px;font-size:11px;
+    display:flex;align-items:center;justify-content:center;flex-direction:column}
+  #start .shopchip:nth-child(n+11){position:relative;left:0}
+  #start .shopchip .ic{font-size:17px}
+  #start .shopchip.cur{background:#f7edff;border-color:#987ef0;transform:none;box-shadow:inset 0 0 0 2px #fff,0 0 0 1px #987ef0}
+  #start .shopchip.done{background:#fff2cc;border-color:#e2b779;box-shadow:inset 0 0 0 2px #fff}
+  #start .note{margin-top:11px}
+  @media(max-height:760px){
+    body:has(#start.active) header{min-height:68px;padding:4px 14px;grid-template-columns:minmax(110px,1fr) auto minmax(110px,1fr)}
+    body:has(#start.active) header .logo-s .logo-crop{width:310px;height:56px}
+    body:has(#start.active) header .logo-s .logo-crop img{width:310px;height:310px}
+    #start .store-awning{margin-bottom:8px}
+    #start .homegrid{margin-bottom:7px}
+    #start .shops{padding:5px 6px 6px;border-top-width:5px;border-bottom-width:6px}
+    #start .shopchip{height:42px;font-size:9px}
+    #start .shopchip .ic{font-size:14px}
+    #start .note{margin-top:7px}
+  }
+  @media(max-width:760px){
+    body:has(#start.active) header{grid-template-columns:minmax(80px,1fr) auto minmax(70px,1fr);padding:4px 7px;gap:4px}
+    body:has(#start.active) header .logo-s .logo-crop{width:190px;height:40px}
+    body:has(#start.active) header .logo-s .logo-crop img{width:190px;height:190px}
+    #start .shops{padding-left:4px;padding-right:4px}
+    #start .shopchip{font-size:8px}
+  }
 </style>
 </head>
 <body>
@@ -635,7 +686,7 @@
   <!-- スタート（ホーム） -->
   <section class="screen active" id="start">
     <div class="card center scroll candy-storefront">
-      <div class="logo-l"><span class="logo-crop"><img src="../img/kanji-candy-logo.png" alt="KANJI CANDY" class="brand-logo-img"></span></div>
+
       
       <div class="store-awning" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
       <div class="homegrid">
