@@ -1020,6 +1020,45 @@ body:has(#start.active) .progress{width:88%!important;max-width:1250px!important
  #start .homegrid{gap:8px}
  #start:before,#start:after{font-size:27px}
 }
+
+/* v3.6 — storefront refinement; home screen only */
+body:has(#start.active){background:
+ linear-gradient(180deg,#c8edff 0%,#e1f5ff 47%,#e7f2d8 48%,#f6eadc 100%)!important}
+#start:before,#start:after{content:"";bottom:9%;width:clamp(30px,5vw,74px);height:clamp(40px,7vw,100px);
+ border-radius:45% 45% 12% 12%;background:
+ radial-gradient(circle at 50% 30%,#a6d88d 0 34%,transparent 35%),
+ radial-gradient(circle at 24% 45%,#82c67b 0 29%,transparent 30%),
+ radial-gradient(circle at 75% 47%,#9bd18a 0 30%,transparent 31%),
+ linear-gradient(90deg,transparent 45%,#b47d62 45% 55%,transparent 55%);
+ filter:drop-shadow(0 4px 3px #83a97844)}
+#start:before{left:0}#start:after{right:0}
+#start .candy-storefront{width:87%!important;max-width:1220px!important;
+ border-top:3px solid #fff!important;border-radius:22px!important;
+ box-shadow:inset 0 0 0 3px #d9b3a4,0 13px 24px #6b947b3c!important}
+#start .candy-storefront:after{content:"";position:absolute;pointer-events:none;z-index:0;
+ bottom:0;left:0;right:0;height:6px;background:linear-gradient(90deg,#d8a58b,#f7d9bd,#d8a58b)}
+#start .shopcard{background:linear-gradient(135deg,#fff6ff,#f8ecff 65%,#f1e2ff)!important}
+#start .shopcard:before{background:linear-gradient(128deg,#d7edff 0 16%,#fff 17% 23%,#d7edff 24% 68%,#fff 69% 77%,#d7edff 78%)!important}
+#start .shopcard .jar{width:min(100%,365px)!important;max-width:365px!important;
+ max-height:390px!important;margin:22px auto 0!important}
+#start .shopcard .jar svg{max-height:390px!important;filter:drop-shadow(0 5px 4px #826a9d55)}
+#start .shopcard .jarnum{margin-bottom:20px!important}
+#start .shopcard .shopname:before,#start .shopcard .shopname:after{content:none!important}
+#start .homeside{background:linear-gradient(125deg,#d7ebff 0 24%,#e4f2ff 25% 58%,#f6fbff 59% 64%,#dceeff 65%)!important;
+ border:5px solid #ac8bca!important;box-shadow:inset 0 0 0 7px #f7efff,0 7px 0 #a87572!important}
+#start .homeside:before{content:"";position:absolute;pointer-events:none;inset:0;
+ border-radius:inherit;box-shadow:inset 0 0 0 2px #ffffffaa}
+#start #startBtn{box-shadow:0 7px 0 #6339b8,0 10px 12px #6948a52a!important}
+#start .shops{box-shadow:inset 0 5px 0 #ffe1c7,0 6px 0 #bb826c!important}
+@media(max-height:760px){
+ #start .shopcard .jar{width:min(85%,210px)!important;max-height:175px!important;margin:4px auto 0!important}
+ #start .shopcard .jar svg{max-height:175px!important}
+ #start .shopcard .jarnum{margin-bottom:14px!important}
+}
+@media(max-width:900px){
+ #start .candy-storefront{width:93%!important}
+ #start:before,#start:after{width:24px;height:42px}
+}
 </style>
 </head>
 <body>
