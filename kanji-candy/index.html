@@ -1128,6 +1128,27 @@ body:has(#start.active) header #penPill{display:none!important}
 body:has(#start.active) header{
  background:linear-gradient(90deg,#f5b2d0 0 50%,#fff9f4 50% 100%) left top / 16.6666667% 100% repeat-x!important;
 }
+
+/* v4.0 — canopy palette, candy jar prominence, and subtle street flowers */
+/* Match the upper fabric to the scalloped valance, retaining the trim and shadows. */
+body:has(#start.active) header{
+ background:linear-gradient(90deg,#f3a7c8 0 50%,#fffaf5 50% 100%) left top / 16.6666667% 100% repeat-x!important;
+}
+/* Enlarge the jar artwork within its existing door panel, without moving controls. */
+#start .shopcard .jar svg{
+ transform:scale(1.23)!important;
+ transform-origin:50% 49%!important;
+}
+@media(max-height:760px){#start .shopcard .jar svg{transform:scale(1.12)!important}}
+/* A few low, unobtrusive blossoms in the ground outside the building. */
+body:has(#start.active){
+ background:
+ radial-gradient(circle at 3.4% 90%,#f7c7d7 0 5px,#fff6d9 5px 7px,transparent 8px),
+ radial-gradient(circle at 7.7% 94%,#fff0a8 0 4px,#fffaf1 4px 6px,transparent 7px),
+ radial-gradient(circle at 93.5% 92%,#f5b6ce 0 5px,#fff6d9 5px 7px,transparent 8px),
+ radial-gradient(circle at 97% 88%,#ffe5a1 0 4px,#fffaf1 4px 6px,transparent 7px),
+ linear-gradient(180deg,#c8edff 0%,#e1f5ff 47%,#e7f2d8 48%,#f6eadc 100%)!important;
+}
 </style>
 </head>
 <body>
