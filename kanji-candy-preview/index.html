@@ -972,6 +972,54 @@ body:has(#start.active) header .pill.home,body:has(#start.active) header #score{
  #start .shopcard .jarnum{margin-bottom:29px!important}
  #start #startBtn:before,#start #startBtn:after{font-size:15px}
 }
+
+/* v3.5 — centered storefront with breathing room and candy-town scenery */
+body:has(#start.active){background:
+ radial-gradient(circle at 7% 71%,#9bdd80 0 25px,transparent 27px),
+ radial-gradient(circle at 94% 73%,#9bdd80 0 34px,transparent 36px),
+ linear-gradient(180deg,#c5ebff 0%,#e6f7ff 51%,#e6f4cd 52%,#fbeadf 100%)!important}
+body:has(#start.active) .app{background:transparent!important}
+body:has(#start.active) header{
+ width:88%!important;max-width:1250px!important;margin-left:auto!important;margin-right:auto!important;
+ border-radius:18px 18px 0 0!important;box-sizing:border-box}
+body:has(#start.active) .progress{width:88%!important;max-width:1250px!important;margin-left:auto!important;margin-right:auto!important}
+#start{position:relative;isolation:isolate;background:transparent!important;overflow:visible!important}
+#start:before,#start:after{position:absolute;z-index:-1;pointer-events:none;bottom:12%;font-size:clamp(24px,4vw,66px);line-height:1;
+ filter:drop-shadow(0 4px 2px #6eae7a33)}
+#start:before{content:"🌳";left:1%}
+#start:after{content:"🌼";right:2%}
+#start .candy-storefront{
+ width:88%!important;max-width:1250px!important;margin-left:auto!important;margin-right:auto!important;
+ box-sizing:border-box!important;flex:1 1 auto;
+ border-radius:0 0 22px 22px!important;
+ box-shadow:inset 0 0 0 3px #d9b3a4,0 12px 24px #6b947b3c!important}
+#start .homegrid{width:calc(100% - 34px)!important;max-width:980px!important;gap:14px}
+#start .shops{width:calc(100% - 20px)!important;max-width:1020px!important}
+#start .shopcard .jar{width:min(95%,335px)!important;max-width:335px!important;
+ max-height:370px!important;margin:12px auto 0!important;align-items:center!important;justify-content:center!important}
+#start .shopcard .jar svg{max-height:370px!important}
+#start .shopcard .jarnum{margin-bottom:38px!important}
+#start .shopcard:before{top:94px!important;bottom:38px!important}
+#start .shopcard:after{right:3px!important}
+#start .shopcard{position:relative}
+#start .shopcard .shopname:before,#start .shopcard .shopname:after{
+ content:"";position:absolute;pointer-events:none;width:9px;height:25px;left:-5%;top:140px;
+ border-radius:6px;border:2px solid #bd8e4e;background:linear-gradient(90deg,#ffdb76,#f5ae39);
+ box-shadow:0 2px 2px #a6757d55}
+#start .shopcard .shopname:after{top:260px}
+@media(max-height:760px){
+ #start .shopcard .jar{width:min(83%,195px)!important;max-height:165px!important;margin:2px auto!important}
+ #start .shopcard .jar svg{max-height:165px!important}
+ #start .shopcard .jarnum{margin-bottom:22px!important}
+ #start .shopcard:before{top:64px!important;bottom:24px!important}
+ #start .shopcard .shopname:before{top:75px;height:13px}
+ #start .shopcard .shopname:after{top:150px;height:13px}
+}
+@media(max-width:900px){
+ body:has(#start.active) header,body:has(#start.active) .progress,#start .candy-storefront{width:94%!important}
+ #start .homegrid{gap:8px}
+ #start:before,#start:after{font-size:27px}
+}
 </style>
 </head>
 <body>
