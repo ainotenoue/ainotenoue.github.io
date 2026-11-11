@@ -669,6 +669,69 @@
     #start .shops{padding-left:4px;padding-right:4px}
     #start .shopchip{font-size:8px}
   }
+
+  /* === Storefront v2.2: door, structural wall lines, large shop window === */
+  #start .candy-storefront{border-left:9px solid #e6c7ba;border-right:9px solid #e6c7ba;
+    background:repeating-linear-gradient(0deg,transparent 0 90px,rgba(201,157,145,.12) 90px 92px,transparent 92px 184px),
+      linear-gradient(90deg,#f1d7c6 0 13px,#fff9e9 13px calc(100% - 13px),#f1d7c6 calc(100% - 13px));
+    box-shadow:inset 0 0 0 3px #fff4e8,0 14px 28px rgba(122,91,147,.13)}
+  #start .homegrid{max-width:1060px;width:calc(100% - 24px);gap:14px;margin-bottom:10px;align-items:stretch}
+  #start .shopcard{width:39%;position:relative;border:8px solid #c9a2b4;border-bottom:11px solid #b98f9f;
+    border-radius:70px 70px 7px 7px;padding:20px 14px 10px;
+    background:linear-gradient(135deg,rgba(238,251,255,.65),rgba(255,255,255,.96) 40%);
+    box-shadow:inset 0 0 0 4px #fff,0 3px 0 #d3b4b8;
+    display:flex;flex-direction:column;align-items:center;justify-content:flex-start}
+  #start .shopcard:before{content:"";position:absolute;top:55px;bottom:12px;left:12px;right:12px;
+    border:2px solid rgba(199,166,201,.38);border-radius:48px 48px 3px 3px;
+    background:linear-gradient(118deg,transparent 0 37%,rgba(255,255,255,.28) 38% 43%,transparent 44% 100%);
+    pointer-events:none}
+  #start .shopcard:after{content:"";position:absolute;right:13px;top:58%;width:12px;height:12px;
+    border-radius:50%;background:#f6d58c;border:2px solid #c5a17d;box-shadow:0 0 0 3px #fff8ec;pointer-events:none}
+  #start .shopno,#start .shopname,#start .jar,#start .jarnum{position:relative;z-index:1}
+  #start .shopno{margin-top:5px}
+  #start .shopname{font-size:25px;margin:2px 0 8px}
+  #start .jar{width:205px;max-width:80%;max-height:290px;flex:1 1 auto;min-height:0;
+    margin:7px auto 10px}
+  #start .jar svg{width:100%;height:100%;max-height:290px}
+  #start .jarnum{margin-top:3px}
+  #start .homeside{width:61%;height:100%;gap:0;display:flex;flex-direction:column;
+    border:9px solid #c2a6c8;border-bottom:11px solid #b69abe;border-radius:13px 13px 5px 5px;
+    background:#fff;box-shadow:inset 0 0 0 4px #f5e9f7,0 3px 0 #d9c3d9;
+    padding:10px 12px 12px;overflow:hidden}
+  #start .window-actions{display:flex;flex-direction:column;gap:12px;flex:1 1 50%;
+    min-height:0;justify-content:stretch;padding-bottom:12px;border-bottom:6px solid #c8a9ce}
+  #start #startBtn{min-height:75px;flex:1 1 55%;font-size:29px;border-radius:12px}
+  #start .rewardrow{flex:1 1 45%;min-height:65px;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:10px}
+  #start .rewardrow .choco,#start .rewardrow #zukanBtn{height:100%;min-height:65px;
+    display:flex;align-items:center;justify-content:center;font-size:18px;white-space:normal;text-align:center}
+  #start .pens{flex:1 1 50%;min-height:0;border:0;border-radius:0;box-shadow:none;
+    background:linear-gradient(125deg,#fff 0 60%,#fcf7ff);padding:14px 12px;justify-content:center}
+  #start .pens .t{margin-bottom:13px}
+  #start .pens .dots{row-gap:12px}
+  #start .shops{max-width:1060px}
+  @media(max-height:760px){
+    #start .homegrid{gap:10px;margin-bottom:6px}
+    #start .shopcard{border-width:5px;border-bottom-width:7px;border-radius:45px 45px 5px 5px;padding:10px 8px 5px}
+    #start .shopcard:before{top:35px}
+    #start .shopcard:after{right:8px;width:9px;height:9px}
+    #start .shopname{font-size:20px;margin:0 0 2px}
+    #start .jar{width:125px;max-height:155px;margin:3px auto 4px}
+    #start .jar svg{max-height:155px}
+    #start .homeside{border-width:6px;border-bottom-width:8px;padding:6px 8px 7px}
+    #start .window-actions{gap:6px;padding-bottom:6px;border-bottom-width:4px}
+    #start #startBtn{min-height:48px;font-size:22px}
+    #start .rewardrow{min-height:43px;gap:6px}
+    #start .rewardrow .choco,#start .rewardrow #zukanBtn{min-height:43px;font-size:14px}
+    #start .pens{padding:6px 7px}
+    #start .pens .t{margin-bottom:5px}
+    #start .pens .dots{row-gap:6px}
+  }
+  @media(max-width:760px){
+    #start .homegrid{width:100%;gap:6px}
+    #start .shopcard{width:40%}
+    #start .homeside{width:60%}
+    #start .rewardrow .choco,#start .rewardrow #zukanBtn{font-size:11px}
+  }
 </style>
 </head>
 <body>
@@ -697,8 +760,8 @@
           <div class="jarnum" id="jarNum"></div>
         </div>
         <div class="homeside">
-          <button class="primary" id="startBtn">はじめる</button>
-          <div class="rewardrow"><div class="choco" id="choco"></div><button id="zukanBtn">📖 キャンディ図鑑</button></div>
+          <div class="window-actions"><button class="primary" id="startBtn">はじめる</button>
+          <div class="rewardrow"><div class="choco" id="choco"></div><button id="zukanBtn">📖 キャンディ図鑑</button></div></div>
           <div class="pens"><div class="t">ペンの色（お店をクリアすると増えるよ）</div><div class="dots" id="pens"></div></div>
           
         </div>
