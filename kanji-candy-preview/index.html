@@ -899,6 +899,49 @@ body:has(#start.active) header .pill.home,body:has(#start.active) header #score{
  #start .candy-storefront:after{right:5px}
  #start .homegrid{width:calc(100% - 30px)!important}
 }
+
+/* v3.3: architectural details, door-panel glass jar, raised brick foundation */
+#start .shopcard{border-radius:100px 100px 7px 7px;box-shadow:inset 0 0 0 5px #ead9f6,0 7px 0 #b98d7e}
+#start .shopcard:before{left:10%!important;right:10%!important;top:91px!important;bottom:57px!important;
+ border:5px solid #b79ad8;border-radius:110px 110px 25px 25px;
+ background:linear-gradient(130deg,#dbefff 0 21%,#f9fdff 22% 31%,#dceeff 32% 67%,#fff 68% 78%,#e1f2ff 79%);
+ box-shadow:inset 0 0 0 5px #f8f0ff,0 4px 0 #c4a6da}
+#start .shopcard .shopno,#start .shopcard .shopname{position:relative;z-index:3}
+#start .shopcard .jar{position:relative;z-index:3;width:min(78%,265px)!important;max-width:265px!important;
+ max-height:310px!important;margin:6px auto 5px!important;
+ filter:drop-shadow(0 3px 2px #9571b345)}
+#start .shopcard .jar svg{max-height:310px!important}
+#start .shopcard .jarnum{position:relative;z-index:3;background:#ffffffa8;border-radius:16px;
+ padding:3px 9px;margin-bottom:61px!important}
+#start .shopcard{background:linear-gradient(115deg,#f6e8ff 0 10%,#fefaff 11% 90%,#e7d6f8 91%)}
+#start .shopcard:after{width:23px;height:23px;right:4px;top:61%;border:4px solid #b87c40;
+ background:radial-gradient(circle at 32% 28%,#fff5b3 0 24%,#ffcf53 25% 70%,#e6a12f 71%);
+ box-shadow:0 2px 2px #79573955}
+#start .homeside{border-radius:90px 90px 5px 5px;border-color:#ad8bc9;
+ box-shadow:inset 0 0 0 6px #e5d1f4,0 7px 0 #b98d7e}
+#start .homeside:before{content:"";position:absolute;pointer-events:none}
+#start #startBtn{border:3px solid #bd9cf9;box-shadow:0 7px 0 #5e34bb,0 10px 14px #7253a92e;
+ text-shadow:0 2px 3px #674ca17a}
+#start .shops{border-radius:14px 14px 18px 18px;border-top:13px solid #bd7963;
+ border-bottom:15px solid #985a47;
+ box-shadow:inset 0 4px 0 #ffd7ba,0 7px 0 #e5b29c,0 10px 0 #fff2de;
+ background:linear-gradient(180deg,#e7a58b,#c98470)}
+#start .shopchip{border:3px solid #b87661;border-radius:9px;
+ background:linear-gradient(160deg,#ffd0b1 0 10%,#edaa8e 11% 72%,#dc947b 73%);
+ box-shadow:inset 0 2px 0 #ffe1c8,inset 0 -3px 0 #c8856b,0 1px 0 #ffe0c9}
+#start .shopchip.lock{background:linear-gradient(150deg,#f9c3a5,#e6a087 65%,#d68c74)}
+#start .shopchip.lock:after{width:47%;height:14%;border:2px solid #ffd7bc;
+ background:#f8c0a4;box-shadow:0 2px 0 #c88671}
+#start .shopchip.cur,#start .shopchip.done{border-color:#ac82d7;box-shadow:inset 0 0 0 2px #fff,0 2px 0 #9b6dba}
+@media(max-height:760px){
+ #start .shopcard:before{top:63px!important;bottom:32px!important;border-width:3px}
+ #start .shopcard .jar{width:min(68%,160px)!important;max-height:155px!important;margin:2px auto!important}
+ #start .shopcard .jar svg{max-height:155px!important}
+ #start .shopcard .jarnum{margin-bottom:34px!important}
+ #start .shopcard:after{width:15px;height:15px;border-width:2px}
+ #start .shops{border-top-width:8px;border-bottom-width:9px}
+ #start .shopchip{border-width:2px}
+}
 </style>
 </head>
 <body>
