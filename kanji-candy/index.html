@@ -1344,6 +1344,40 @@ body:has(#start.active) header{
  top:31px!important;bottom:49px!important;width:14px!important;
  }
 }
+
+/* v4.8 — clean, symmetric side walls ending at the brick foundation */
+#start .candy-storefront{
+ border-left-color:transparent!important;
+ border-right-color:transparent!important;
+ background:
+   linear-gradient(90deg,
+     #a76a53 0 8px,#e8ac8c 8px 25px,
+     transparent 25px calc(100% - 25px),
+     #e8ac8c calc(100% - 25px) calc(100% - 8px),
+     #a76a53 calc(100% - 8px))
+     center top / 100% calc(100% - 65px) no-repeat,
+   #fff9ed!important;
+ box-shadow:0 13px 24px #6b947b3c!important;
+}
+#start .candy-storefront:before,
+#start .candy-storefront:after{
+ background:#e8ac8c!important;
+ border-color:#935842!important;
+ bottom:65px!important;
+}
+@media(max-height:760px){
+ #start .candy-storefront{
+   background:
+     linear-gradient(90deg,
+       #a76a53 0 8px,#e8ac8c 8px 25px,
+       transparent 25px calc(100% - 25px),
+       #e8ac8c calc(100% - 25px) calc(100% - 8px),
+       #a76a53 calc(100% - 8px))
+       center top / 100% calc(100% - 49px) no-repeat,
+     #fff9ed!important;
+ }
+ #start .candy-storefront:before,#start .candy-storefront:after{bottom:49px!important}
+}
 </style>
 </head>
 <body>
