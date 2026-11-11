@@ -1277,6 +1277,38 @@ body:has(#start.active) header .logo-s{
 @media(max-height:760px){
  #start .rewardrow #zukanBtn{font-size:clamp(14px,1.45vw,19px)!important}
 }
+
+/* v4.6 — lower jar and progress badge; unify darker storefront outer walls */
+#start .shopcard .jar{
+ transform:translateY(20px)!important;
+}
+#start .shopcard .jarnum{
+ transform:translateY(18px)!important;
+ background:#fffdf7!important;
+ opacity:1!important;
+ box-shadow:0 1px 4px #8d68502b!important;
+}
+#start .candy-storefront{
+ border-left:8px solid #a76a53!important;
+ border-right:8px solid #a76a53!important;
+ box-shadow:inset 5px 0 0 #e3aa8e,inset -5px 0 0 #e3aa8e,0 13px 24px #6b947b3c!important;
+}
+#start .candy-storefront:before,
+#start .candy-storefront:after{
+ background:repeating-linear-gradient(180deg,
+ #f1c3a4 0 30px,#a76a53 30px 34px,
+ #e8ac8c 34px 62px,#a76a53 62px 66px)!important;
+ border-color:#935842!important;
+}
+body:has(#start.active) header{
+ border-left-color:#a76a53!important;
+ border-right-color:#a76a53!important;
+ box-shadow:inset 5px 0 #e3aa8e,inset -5px 0 #e3aa8e!important;
+}
+@media(max-height:760px){
+ #start .shopcard .jar{transform:translateY(9px)!important}
+ #start .shopcard .jarnum{transform:translateY(8px)!important}
+}
 </style>
 </head>
 <body>
