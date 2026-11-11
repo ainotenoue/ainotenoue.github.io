@@ -1244,6 +1244,39 @@ body:has(#start.active){
  #start .shopcard .jar{margin:9px auto 0!important;transform:translateY(5px)!important}
  #start .shopcard .jar svg{transform:scale(1.07)!important}
 }
+
+/* v4.5 — typography and warm-brown contrast polish; no gameplay changes */
+#start #startBtn{
+ font-family:Arial,"Helvetica Neue","Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif!important;
+ font-weight:900!important;
+ letter-spacing:.035em!important;
+}
+#start .rewardrow #zukanBtn{
+ font-size:clamp(19px,1.85vw,27px)!important;
+ font-weight:850!important;
+ white-space:nowrap!important;
+}
+#start .rewardrow .choco{
+ white-space:nowrap!important;
+ font-weight:800!important;
+}
+body:has(#start.active) header .logo-s{
+ border-color:#a96c57!important;
+ box-shadow:inset 0 0 0 3px #ffdfbb,0 5px 0 #824e3e,0 7px 9px #67483e60!important;
+}
+#start .shops{
+ border-color:#a96c57!important;
+ box-shadow:inset 0 5px 0 #ffe1c7,0 6px 0 #935b49!important;
+}
+#start .shopchip{
+ border-color:#b77b65!important;
+}
+#start .window-actions{
+ border-bottom-color:#a96c57!important;
+}
+@media(max-height:760px){
+ #start .rewardrow #zukanBtn{font-size:clamp(14px,1.45vw,19px)!important}
+}
 </style>
 </head>
 <body>
@@ -1495,8 +1528,8 @@ function renderHome(){
   $('jarNum').innerHTML=sh.qs.length?`${got} / ${nd} <small>でクリア</small>`:'<small>このお店は じゅんび中…</small>';
   const pool=ALL.filter(q=>q.shop<=cs&&!isDone(q)).length;
   $('startBtn').disabled=!pool;$('startBtn').textContent=pool?'OPEN！':'じゅんび中';
-  const c=S.choco,streak=(c.last===today()||c.last===yesterday())?c.streak:0;
-  $('choco').innerHTML=`🍫 チョコ <b>× ${c.n}</b>　${streak>1?`<br><small>${streak}日つづけてるよ！</small>`:''}`;
+  const c=S.choco;
+  $('choco').innerHTML=`🍫 チョコ <b>× ${c.n}</b>`;
   const open=1+S.cleared.length;
   $('pens').innerHTML=PENS.map(([nm,col],i)=>i<open?
     `<button class="pen${col==='rainbow'?' rainbow':''}${S.pen===i?' sel':''}" data-pen="${i}" title="${nm}" style="background:${col==='rainbow'?'':col}"></button>`:
