@@ -1089,6 +1089,41 @@ body:has(#start.active) header .pill{font-size:clamp(13px,1.25vw,18px)!important
  #start #startBtn{font-size:20px!important}
  #start .rewardrow #zukanBtn{font-size:12px!important}
 }
+
+/* v3.8 — restore the hanging sign, striped canopy, and edge-aligned controls */
+body:has(#start.active) header{
+ display:grid!important;grid-template-columns:minmax(115px,1fr) auto minmax(115px,1fr)!important;
+ align-items:center!important;gap:10px!important;
+ background:repeating-linear-gradient(105deg,#f5b2d0 0 78px,#fff9f4 78px 156px)!important;
+ border-left:8px solid #fff!important;border-right:8px solid #fff!important;
+ border-top:8px solid #fff!important;border-bottom:0!important;
+ border-radius:20px 20px 0 0!important;
+ box-shadow:inset 7px 0 #c99081,inset -7px 0 #c99081!important;
+ min-height:95px!important;padding:7px 15px 10px!important;
+ position:relative!important;isolation:isolate!important;z-index:2!important}
+body:has(#start.active) header .logo-s{
+ display:block!important;grid-column:2!important;grid-row:1!important;
+ justify-self:center!important;margin:0!important;position:relative!important;
+ padding:5px 20px 7px!important;background:#fff9ed!important;
+ border:5px solid #ba7763!important;border-radius:45px!important;
+ box-shadow:inset 0 0 0 3px #ffdfbb,0 5px 0 #935b4d,0 7px 9px #7d5a5360!important}
+body:has(#start.active) header .logo-s .logo-crop{width:390px!important;height:76px!important;max-width:43vw!important}
+body:has(#start.active) header .logo-s .logo-crop img{width:390px!important;height:390px!important}
+body:has(#start.active) header .logo-s:before,body:has(#start.active) header .logo-s:after{
+ content:""!important;position:absolute!important;top:-25px!important;
+ height:24px!important;width:5px!important;background:#a76a4d!important}
+body:has(#start.active) header .meta{display:contents!important}
+body:has(#start.active) header .pill.home{grid-column:1!important;grid-row:1!important;justify-self:start!important}
+body:has(#start.active) header #score{grid-column:3!important;grid-row:1!important;justify-self:end!important}
+body:has(#start.active) header #penPill{display:none!important}
+#start .candy-storefront{border-top:0!important;margin-top:0!important}
+#start .store-awning{margin-top:-3px!important}
+@media(max-width:900px){
+ body:has(#start.active) header{grid-template-columns:minmax(80px,1fr) auto minmax(80px,1fr)!important;min-height:72px!important;padding:4px 8px 7px!important}
+ body:has(#start.active) header .logo-s{padding:3px 7px 4px!important;border-width:3px!important}
+ body:has(#start.active) header .logo-s .logo-crop{width:250px!important;height:52px!important;max-width:39vw!important}
+ body:has(#start.active) header .logo-s .logo-crop img{width:250px!important;height:250px!important}
+}
 </style>
 </head>
 <body>
