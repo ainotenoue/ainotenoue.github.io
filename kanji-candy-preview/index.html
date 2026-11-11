@@ -845,6 +845,60 @@ body:has(#start.active) .progress{width:min(100%,1200px);margin:0 auto;height:0;
   #start .jar svg{max-height:145px!important}
   #start .jarnum{margin-bottom:4px!important}
 }
+
+/* v3.2 — architectural continuity: striped roof, hanging sign, brick piers */
+body:has(#start.active) header{
+ position:relative;isolation:isolate;z-index:2;
+ background:repeating-linear-gradient(105deg,#f5b2d0 0 78px,#fff9f4 78px 156px);
+ border-left:8px solid #fff;border-right:8px solid #fff;border-top:8px solid #fff;
+ box-shadow:inset 7px 0 #c99081,inset -7px 0 #c99081;
+}
+body:has(#start.active) header:before{
+ content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
+ background:linear-gradient(180deg,#ffffff45,#ffffff08 75%,#fff4ef00)
+}
+body:has(#start.active) header .logo-s{
+ border:5px solid #ba7763;border-radius:45px;background:#fff9ed;
+ box-shadow:inset 0 0 0 3px #ffdfbb,0 5px 0 #935b4d,0 7px 9px #7d5a5360;
+}
+body:has(#start.active) header .logo-s:before,
+body:has(#start.active) header .logo-s:after{
+ height:22px;top:-23px;width:5px;background:#a76a4d;border-radius:3px;
+}
+body:has(#start.active) header .pill.home,body:has(#start.active) header #score{
+ z-index:5;box-shadow:0 3px 0 #bba6c2
+}
+#start .candy-storefront{
+ position:relative;
+ background:linear-gradient(90deg,#e4a98e 0 11px,#f9c7a9 11px 22px,#fff9ed 22px calc(100% - 22px),#f9c7a9 calc(100% - 22px) calc(100% - 11px),#e4a98e calc(100% - 11px));
+}
+#start .candy-storefront:before{
+ content:"";position:absolute;z-index:0;top:53px;bottom:65px;left:11px;width:26px;
+ background:repeating-linear-gradient(180deg,#f9d9bb 0 30px,#d9987c 30px 34px,#f4bf9e 34px 62px,#c78370 62px 66px);
+ border-right:3px solid #b97765;pointer-events:none;
+}
+#start .candy-storefront:after{
+ content:"";position:absolute;z-index:0;top:53px;bottom:65px;right:11px;width:26px;
+ background:repeating-linear-gradient(180deg,#f9d9bb 0 30px,#d9987c 30px 34px,#f4bf9e 34px 62px,#c78370 62px 66px);
+ border-left:3px solid #b97765;pointer-events:none;
+}
+#start .store-awning{z-index:4;filter:drop-shadow(0 5px 2px #92596566)}
+#start .store-awning span{border-color:#a95568;border-bottom:5px solid #a95c70;
+ border-radius:0 0 34px 34px;background:#f3a7c8}
+#start .store-awning span:nth-child(even){background:#fffaf5}
+#start .homegrid{position:relative;z-index:1;max-width:980px!important;width:calc(100% - 50px)!important}
+#start .shops{position:relative;z-index:2;max-width:1040px!important}
+#start .shopcard{background:linear-gradient(120deg,#f3f8ff,#fff 48%,#f0f7ff);
+ box-shadow:inset 0 0 0 5px #e8d7f1,0 5px 0 #c18d7d}
+#start .homeside{background:repeating-linear-gradient(120deg,#dceeff 0 75px,#f8fcff 76px 91px,#dceeff 92px 155px)}
+#start .window-actions{position:relative;z-index:1}
+#start .note{position:relative;z-index:1}
+@media(max-height:760px){
+ #start .candy-storefront:before,#start .candy-storefront:after{top:31px;bottom:49px;width:14px}
+ #start .candy-storefront:before{left:5px}
+ #start .candy-storefront:after{right:5px}
+ #start .homegrid{width:calc(100% - 30px)!important}
+}
 </style>
 </head>
 <body>
