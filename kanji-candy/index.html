@@ -529,6 +529,536 @@
     #start .rewardrow{grid-template-columns:minmax(0,1fr) 115px}
     #start .rewardrow #zukanBtn{font-size:12px}
   }
+
+  /* === Storefront concept v2.0 / decorative layout, no gameplay changes === */
+  :root{--store-cream:#fff9e9;--store-trim:#b99edb;--store-pink:#f7bfd7;--store-lav:#d9c9f7}
+  body{background:
+    radial-gradient(circle at 12% 18%,rgba(241,172,242,.32) 0 3px,transparent 4px) 0 0/90px 90px,
+    radial-gradient(circle at 60% 70%,rgba(255,255,255,.7) 0 2.5px,transparent 3.5px) 0 0/90px 90px,
+    linear-gradient(180deg,#e7f3e8,#d9ecdf)}
+  .app{padding-top:8px;padding-bottom:8px}
+  header{position:relative;background:var(--store-cream);border:3px solid #fff;border-bottom:0;
+    border-radius:22px 22px 0 0;padding:7px 17px 5px;box-shadow:0 -2px 16px rgba(151,126,242,.1);z-index:2}
+  header .logo-s .logo-crop{width:150px;height:35px}
+  header .logo-s .logo-crop img{width:150px;height:150px}
+  header .meta{gap:8px}
+  header .pill{background:#fff;border:2px solid #efe3f5;box-shadow:0 2px 0 #e7d6ee}
+  .progress{height:7px;margin:0 0 0;background:#d7c2ec;border-radius:0;box-shadow:none;z-index:2}
+  #start .candy-storefront{position:relative;isolation:isolate;overflow:hidden;display:flex;flex-direction:column;
+    padding:5px 20px 9px;border:3px solid #fff;border-top:0;border-radius:0 0 25px 25px;
+    background:var(--store-cream);box-shadow:0 14px 28px rgba(122,91,147,.13);justify-content:flex-start}
+  #start .candy-storefront:before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
+    background:linear-gradient(90deg,rgba(225,202,237,.17) 0 9px,transparent 9px calc(100% - 9px),rgba(225,202,237,.17) calc(100% - 9px))}
+  #start .logo-l{height:79px;margin:0 auto 1px;flex:none}
+  #start .logo-l .logo-crop{height:73px;width:400px}
+  #start .logo-l .logo-crop img{width:400px;height:400px}
+  #start .store-awning{width:calc(100% + 28px);margin:0 -14px 12px;height:52px;display:grid;
+    grid-template-columns:repeat(12,minmax(0,1fr));flex:none;
+    filter:drop-shadow(0 4px 1px rgba(145,104,154,.18))}
+  #start .store-awning span{display:block;height:44px;border:1.5px solid #c5a7cf;border-top:3px solid #ac8bca;
+    border-radius:0 0 22px 22px;background:var(--store-pink)}
+  #start .store-awning span:nth-child(even){background:#fefbf6}
+  #start .store-awning span:first-child{border-bottom-left-radius:25px}
+  #start .store-awning span:last-child{border-bottom-right-radius:25px}
+  #start .homegrid{width:100%;max-width:860px;gap:16px;min-height:0;flex:1 1 auto;
+    margin:0 auto 9px;align-items:stretch}
+  #start .shopcard{position:relative;width:41%;background:#fff;border:3px solid #d7c2e6;
+    border-radius:18px 18px 8px 8px;box-shadow:inset 0 0 0 5px #f9f1fc,0 5px 0 #d4bad9;
+    padding:8px 12px 9px;min-height:0}
+  #start .shopcard:before{content:"ショーウィンドウ";position:absolute;top:-10px;left:50%;
+    transform:translateX(-50%);white-space:nowrap;background:#fff4d6;border:1px solid #d8b6d2;
+    border-radius:99px;padding:2px 13px;font-size:10px;font-weight:700;letter-spacing:.06em;color:#9672b0}
+  #start .shopno{margin-top:6px}
+  #start .jar{max-height:145px;width:118px;flex-basis:145px}
+  #start .jar svg{max-height:145px}
+  #start .homeside{width:59%;gap:8px}
+  #start #startBtn{min-height:55px;border-radius:14px 14px 20px 20px;
+    box-shadow:0 5px 0 #6f58cf;font-size:24px}
+  #start .rewardrow{gap:9px}
+  #start .rewardrow .choco,#start .rewardrow #zukanBtn{border-radius:12px;background:#fff}
+  #start .pens{border-radius:14px 14px 8px 8px;border-color:#d7c2e6;box-shadow:0 5px 0 #e3d2e7;
+    background:#fff;padding:10px 14px;justify-content:center}
+  #start .pens .t{margin-bottom:8px}
+  #start .pens .dots{row-gap:9px;column-gap:9px}
+  #start .shops{position:relative;width:100%;max-width:990px;gap:6px;
+    background:#f6e8d4;border:3px solid #d4bba9;border-radius:11px;padding:8px 9px 9px;
+    margin:0 auto 4px;box-shadow:0 5px 0 #c5a58f}
+  #start .shopchip{background:#fff;border-color:#e4d2ed;border-radius:8px;height:57px}
+  #start .shopchip.cur{background:#fff5fe;border-color:#977ef2}
+  #start .shopchip.done{background:#fff9e5;border-color:#ebce81}
+  #start .note{margin-top:7px;font-size:11px}
+  @media(max-height:760px){
+    header{padding:4px 12px 3px}
+    #start .candy-storefront{padding:3px 12px 6px}
+    #start .logo-l{height:55px;margin-bottom:0}
+    #start .logo-l .logo-crop{width:310px;height:52px}
+    #start .logo-l .logo-crop img{width:310px;height:310px}
+    #start .store-awning{height:34px;margin:0 -9px 8px;width:calc(100% + 18px)}
+    #start .store-awning span{height:29px;border-radius:0 0 15px 15px}
+    #start .homegrid{gap:11px;margin-bottom:6px}
+    #start .shopcard{padding:5px 9px 6px}
+    #start .shopno{margin-top:5px}
+    #start .jar{max-height:90px;width:85px;flex-basis:90px}
+    #start .jar svg{max-height:90px}
+    #start .homeside{gap:5px}
+    #start #startBtn{min-height:43px;font-size:20px}
+    #start .pens{padding:6px 10px}
+    #start .pens .t{margin-bottom:4px}
+    #start .pens .dots{row-gap:5px;column-gap:6px}
+    #start .shops{padding:5px 6px 6px;gap:4px}
+    #start .shopchip{height:44px}
+    #start .note{margin-top:5px}
+  }
+  @media(max-width:760px){
+    header .logo-s .logo-crop{width:100px;height:30px}
+    header .logo-s .logo-crop img{width:100px;height:100px}
+    header .meta{gap:4px}
+    header .pill{padding:3px 6px;font-size:11px}
+    #start .store-awning{grid-template-columns:repeat(12,minmax(0,1fr))}
+    #start .shops{gap:3px;padding:5px 3px}
+    #start .shopchip{font-size:9px}
+  }
+
+  /* === Storefront v2.1: one signboard row and structural brick foundation === */
+  body:has(#start.active) header{display:grid;grid-template-columns:minmax(125px,1fr) auto minmax(125px,1fr);
+    align-items:center;min-height:99px;padding:9px 22px 8px;gap:12px}
+  body:has(#start.active) header .logo-s{grid-column:2;grid-row:1;margin:0;justify-self:center;line-height:1}
+  body:has(#start.active) header .logo-s .logo-crop{width:390px;height:76px;max-width:45vw}
+  body:has(#start.active) header .logo-s .logo-crop img{width:390px;height:390px}
+  body:has(#start.active) header .meta{display:contents}
+  body:has(#start.active) header .pill.home{grid-column:1;grid-row:1;justify-self:start}
+  body:has(#start.active) header #score{grid-column:3;grid-row:1;justify-self:end}
+  body:has(#start.active) header #penPill{display:none}
+  body:has(#start.active) .progress{height:5px}
+  #start .candy-storefront{padding-top:0}
+  #start .store-awning{margin-top:0;margin-bottom:12px}
+  #start .homegrid{margin-bottom:12px}
+  #start .shops{max-width:1050px;position:relative;box-sizing:border-box;
+    display:grid;grid-template-columns:repeat(10,minmax(0,1fr));grid-template-rows:repeat(2,1fr);
+    width:100%;gap:0;overflow:visible;flex:none;margin:0 auto 4px;
+    padding:8px 10px 10px;border:0;border-top:7px solid #c79f92;border-bottom:9px solid #b8897b;
+    border-radius:5px 5px 9px 9px;background:#e9c6b8;
+    box-shadow:inset 0 3px 0 #f7e3d8,0 6px 0 #d3a99a,0 9px 0 #f5e0d3}
+  #start .shops:before,#start .shops:after{content:"";position:absolute;top:8px;bottom:10px;width:10px;
+    background:repeating-linear-gradient(0deg,#c89e92 0 4px,#f6e1d6 4px 8px);pointer-events:none}
+  #start .shops:before{left:0}#start .shops:after{right:0}
+  #start .shopchip{box-sizing:border-box;width:100%;max-width:100%;min-width:0;height:54px;
+    margin:0;border:2px solid #d8b4a6;border-radius:3px;background:#fffdf8;
+    box-shadow:inset 0 0 0 2px #fff;transform:none;padding:3px 1px;font-size:11px;
+    display:flex;align-items:center;justify-content:center;flex-direction:column}
+  #start .shopchip:nth-child(n+11){position:relative;left:0}
+  #start .shopchip .ic{font-size:17px}
+  #start .shopchip.cur{background:#f7edff;border-color:#987ef0;transform:none;box-shadow:inset 0 0 0 2px #fff,0 0 0 1px #987ef0}
+  #start .shopchip.done{background:#fff2cc;border-color:#e2b779;box-shadow:inset 0 0 0 2px #fff}
+  #start .note{margin-top:11px}
+  @media(max-height:760px){
+    body:has(#start.active) header{min-height:68px;padding:4px 14px;grid-template-columns:minmax(110px,1fr) auto minmax(110px,1fr)}
+    body:has(#start.active) header .logo-s .logo-crop{width:310px;height:56px}
+    body:has(#start.active) header .logo-s .logo-crop img{width:310px;height:310px}
+    #start .store-awning{margin-bottom:8px}
+    #start .homegrid{margin-bottom:7px}
+    #start .shops{padding:5px 6px 6px;border-top-width:5px;border-bottom-width:6px}
+    #start .shopchip{height:42px;font-size:9px}
+    #start .shopchip .ic{font-size:14px}
+    #start .note{margin-top:7px}
+  }
+  @media(max-width:760px){
+    body:has(#start.active) header{grid-template-columns:minmax(80px,1fr) auto minmax(70px,1fr);padding:4px 7px;gap:4px}
+    body:has(#start.active) header .logo-s .logo-crop{width:190px;height:40px}
+    body:has(#start.active) header .logo-s .logo-crop img{width:190px;height:190px}
+    #start .shops{padding-left:4px;padding-right:4px}
+    #start .shopchip{font-size:8px}
+  }
+
+  /* === Storefront v2.2: door, structural wall lines, large shop window === */
+  #start .candy-storefront{border-left:9px solid #e6c7ba;border-right:9px solid #e6c7ba;
+    background:repeating-linear-gradient(0deg,transparent 0 90px,rgba(201,157,145,.12) 90px 92px,transparent 92px 184px),
+      linear-gradient(90deg,#f1d7c6 0 13px,#fff9e9 13px calc(100% - 13px),#f1d7c6 calc(100% - 13px));
+    box-shadow:inset 0 0 0 3px #fff4e8,0 14px 28px rgba(122,91,147,.13)}
+  #start .homegrid{max-width:1060px;width:calc(100% - 24px);gap:14px;margin-bottom:10px;align-items:stretch}
+  #start .shopcard{width:39%;position:relative;border:8px solid #c9a2b4;border-bottom:11px solid #b98f9f;
+    border-radius:70px 70px 7px 7px;padding:20px 14px 10px;
+    background:linear-gradient(135deg,rgba(238,251,255,.65),rgba(255,255,255,.96) 40%);
+    box-shadow:inset 0 0 0 4px #fff,0 3px 0 #d3b4b8;
+    display:flex;flex-direction:column;align-items:center;justify-content:flex-start}
+  #start .shopcard:before{content:"";position:absolute;top:55px;bottom:12px;left:12px;right:12px;
+    border:2px solid rgba(199,166,201,.38);border-radius:48px 48px 3px 3px;
+    background:linear-gradient(118deg,transparent 0 37%,rgba(255,255,255,.28) 38% 43%,transparent 44% 100%);
+    pointer-events:none}
+  #start .shopcard:after{content:"";position:absolute;right:13px;top:58%;width:12px;height:12px;
+    border-radius:50%;background:#f6d58c;border:2px solid #c5a17d;box-shadow:0 0 0 3px #fff8ec;pointer-events:none}
+  #start .shopno,#start .shopname,#start .jar,#start .jarnum{position:relative;z-index:1}
+  #start .shopno{margin-top:5px}
+  #start .shopname{font-size:25px;margin:2px 0 8px}
+  #start .jar{width:205px;max-width:80%;max-height:290px;flex:1 1 auto;min-height:0;
+    margin:7px auto 10px}
+  #start .jar svg{width:100%;height:100%;max-height:290px}
+  #start .jarnum{margin-top:3px}
+  #start .homeside{width:61%;height:100%;gap:0;display:flex;flex-direction:column;
+    border:9px solid #c2a6c8;border-bottom:11px solid #b69abe;border-radius:13px 13px 5px 5px;
+    background:#fff;box-shadow:inset 0 0 0 4px #f5e9f7,0 3px 0 #d9c3d9;
+    padding:10px 12px 12px;overflow:hidden}
+  #start .window-actions{display:flex;flex-direction:column;gap:12px;flex:1 1 50%;
+    min-height:0;justify-content:stretch;padding-bottom:12px;border-bottom:6px solid #c8a9ce}
+  #start #startBtn{min-height:75px;flex:1 1 55%;font-size:29px;border-radius:12px}
+  #start .rewardrow{flex:1 1 45%;min-height:65px;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:10px}
+  #start .rewardrow .choco,#start .rewardrow #zukanBtn{height:100%;min-height:65px;
+    display:flex;align-items:center;justify-content:center;font-size:18px;white-space:normal;text-align:center}
+  #start .pens{flex:1 1 50%;min-height:0;border:0;border-radius:0;box-shadow:none;
+    background:linear-gradient(125deg,#fff 0 60%,#fcf7ff);padding:14px 12px;justify-content:center}
+  #start .pens .t{margin-bottom:13px}
+  #start .pens .dots{row-gap:12px}
+  #start .shops{max-width:1060px}
+  @media(max-height:760px){
+    #start .homegrid{gap:10px;margin-bottom:6px}
+    #start .shopcard{border-width:5px;border-bottom-width:7px;border-radius:45px 45px 5px 5px;padding:10px 8px 5px}
+    #start .shopcard:before{top:35px}
+    #start .shopcard:after{right:8px;width:9px;height:9px}
+    #start .shopname{font-size:20px;margin:0 0 2px}
+    #start .jar{width:125px;max-height:155px;margin:3px auto 4px}
+    #start .jar svg{max-height:155px}
+    #start .homeside{border-width:6px;border-bottom-width:8px;padding:6px 8px 7px}
+    #start .window-actions{gap:6px;padding-bottom:6px;border-bottom-width:4px}
+    #start #startBtn{min-height:48px;font-size:22px}
+    #start .rewardrow{min-height:43px;gap:6px}
+    #start .rewardrow .choco,#start .rewardrow #zukanBtn{min-height:43px;font-size:14px}
+    #start .pens{padding:6px 7px}
+    #start .pens .t{margin-bottom:5px}
+    #start .pens .dots{row-gap:6px}
+  }
+  @media(max-width:760px){
+    #start .homegrid{width:100%;gap:6px}
+    #start .shopcard{width:40%}
+    #start .homeside{width:60%}
+    #start .rewardrow .choco,#start .rewardrow #zukanBtn{font-size:11px}
+  }
+
+/* === Storefront v3.0: actual building façade, awning, door, window and brick reveals === */
+body:has(#start.active){background:#e5f3e9}
+body:has(#start.active) .app{width:100%;max-width:none;padding:0 3.5vw 8px;box-sizing:border-box}
+body:has(#start.active) header{width:min(100%,1200px);box-sizing:border-box;margin:0 auto;
+  min-height:116px;background:linear-gradient(180deg,#fff8e7,#fff5e4);
+  border:7px solid #fff;border-bottom:0;border-radius:0;padding:8px 25px 16px;
+  box-shadow:inset 9px 0 #f1d6c5,inset -9px 0 #f1d6c5}
+body:has(#start.active) header .logo-s{position:relative;z-index:4;padding:5px 23px 7px;
+  background:#fff9e9;border:4px solid #c88f7b;border-radius:38px;
+  box-shadow:0 4px 0 #a66c5c,0 7px 8px #a57c7840}
+body:has(#start.active) header .logo-s:before,body:has(#start.active) header .logo-s:after{
+  content:"";position:absolute;top:-19px;width:5px;height:19px;background:#b98c70}
+body:has(#start.active) header .logo-s:before{left:15%}
+body:has(#start.active) header .logo-s:after{right:15%}
+body:has(#start.active) header .logo-s .logo-crop{width:370px;height:70px}
+body:has(#start.active) header .logo-s .logo-crop img{width:370px;height:370px}
+body:has(#start.active) .progress{width:min(100%,1200px);margin:0 auto;height:0;overflow:visible}
+#start .candy-storefront{width:min(100%,1200px);margin:0 auto;box-sizing:border-box;
+  padding:0 28px 12px;border:9px solid #fff;border-top:0;border-radius:0 0 25px 25px;
+  background:linear-gradient(90deg,#eec8b4 0 17px,#fff9eb 17px calc(100% - 17px),#eec8b4 calc(100% - 17px));
+  box-shadow:inset 0 0 0 3px #d9b3a4,0 12px 24px #896b6b30}
+#start .store-awning{position:relative;z-index:3;order:-1;
+  width:calc(100% + 56px);margin:-2px -28px 12px;height:67px;
+  grid-template-columns:repeat(12,minmax(0,1fr));filter:drop-shadow(0 5px 2px #9f72834a)}
+#start .store-awning span{height:58px;border:2px solid #c48c94;border-top:0;
+  border-radius:0 0 34px 34px;background:#f4b5cf}
+#start .store-awning span:nth-child(even){background:#fffdf9}
+#start .homegrid{width:100%;max-width:1030px;gap:8px;flex:1 1 auto;min-height:0;margin:0 auto 10px}
+#start .shopcard{width:39%;border:8px solid #a986b7;border-bottom:12px solid #b18dbd;
+  border-radius:130px 130px 6px 6px;background:linear-gradient(120deg,#edf7ff,#fff 42%,#edf5ff);
+  padding:17px 14px 8px;box-shadow:inset 0 0 0 5px #e8d7f1,0 4px 0 #d7b2b0}
+#start .shopcard:before{top:92px;bottom:18px;left:14%;right:14%;border:4px solid #c2a5df;
+  border-radius:95px 95px 13px 13px;background:linear-gradient(125deg,#eaf6ff,#fff 46%,#e9f5ff)}
+#start .shopcard:after{top:62%;right:5px;width:17px;height:17px;background:#ffdf78;border:3px solid #c48e4b}
+#start .shopno{margin-top:2px;font-size:15px}
+#start .shopname{font-size:24px;margin:2px 0 6px}
+#start .jar{width:220px;max-width:70%;max-height:260px;flex:1 1 auto;margin:9px auto 5px}
+#start .jar svg{max-height:260px}
+#start .jarnum{margin:3px auto 8px}
+#start .homeside{width:61%;border:8px solid #b49ad3;border-bottom:12px solid #9d7fbc;
+  border-radius:90px 90px 5px 5px;padding:40px 14px 12px;
+  background:repeating-linear-gradient(120deg,#e7f4ff 0 80px,#f8fcff 81px 100px,#e7f4ff 101px 170px);
+  box-shadow:inset 0 0 0 5px #e7d8f8,0 4px 0 #d7b2b0}
+#start .window-actions{flex:1 1 50%;min-height:0;padding-bottom:10px;gap:10px;
+  border-bottom:6px solid #c78f7c}
+#start #startBtn{flex:1 1 55%;min-height:60px;font-size:27px}
+#start .rewardrow{flex:1 1 45%;min-height:52px;gap:8px}
+#start .rewardrow .choco,#start .rewardrow #zukanBtn{min-height:52px;background:#fff;font-size:17px}
+#start .pens{flex:1 1 50%;background:transparent;border:0;box-shadow:none;padding:14px 8px}
+#start .shops{max-width:1040px;width:100%;padding:8px 9px 9px;gap:0;
+  border:8px solid #aa6a57;border-top:12px solid #b77b64;border-bottom:12px solid #985d4c;
+  background:#d7957e;box-shadow:0 5px 0 #eac0a4}
+#start .shops:before,#start .shops:after{display:none}
+#start .shopchip{height:52px;border:2px solid #c6816b;border-radius:7px;
+  background:linear-gradient(150deg,#f6b99d 0 25%,#e89e84 26% 100%);
+  box-shadow:inset 0 0 0 2px #f8c4a8;font-size:0}
+#start .shopchip.lock{background:linear-gradient(155deg,#f4b69c,#e49a80)}
+#start .shopchip.lock:after{content:"";width:55%;height:21%;border:2px solid #f9c6ac;border-radius:3px}
+#start .shopchip.cur{background:#f5e8ff}
+#start .shopchip.done{background:#fff4d3}
+#start .shopchip .ic{font-size:24px}
+#start .note{margin:11px auto 0}
+@media(max-height:760px){
+  body:has(#start.active) header{min-height:72px;padding:3px 16px 6px}
+  body:has(#start.active) header .logo-s{padding:2px 12px}
+  body:has(#start.active) header .logo-s .logo-crop{width:285px;height:50px}
+  body:has(#start.active) header .logo-s .logo-crop img{width:285px;height:285px}
+  #start .candy-storefront{padding:0 16px 7px}
+  #start .store-awning{width:calc(100% + 32px);margin:0 -16px 7px;height:39px}
+  #start .store-awning span{height:34px;border-radius:0 0 20px 20px}
+  #start .shopcard{border-width:5px;border-bottom-width:7px;border-radius:70px 70px 5px 5px;padding:8px}
+  #start .shopcard:before{top:58px}
+  #start .shopname{font-size:20px}
+  #start .jar{width:135px;max-height:145px}
+  #start .jar svg{max-height:145px}
+  #start .homeside{padding:21px 8px 7px;border-width:5px;border-bottom-width:7px;border-radius:55px 55px 4px 4px}
+  #start .window-actions{gap:5px;padding-bottom:5px;border-bottom-width:4px}
+  #start #startBtn{min-height:40px;font-size:21px}
+  #start .rewardrow{min-height:38px}
+  #start .rewardrow .choco,#start .rewardrow #zukanBtn{min-height:38px;font-size:13px}
+  #start .pens{padding:6px}
+  #start .shops{padding:5px;border-width:5px;border-top-width:7px;border-bottom-width:7px}
+  #start .shopchip{height:38px}
+  #start .shopchip .ic{font-size:18px}
+}
+
+/* v3.1 iPad screenshot corrections: prevent inherited label transforms from moving door inset */
+#start .shopcard:before{
+  content:"";transform:none!important;left:13%!important;right:13%!important;
+  width:auto!important;height:auto!important;top:94px!important;bottom:15px!important;
+  box-sizing:border-box;z-index:0;pointer-events:none;
+  border:3px solid #c5ace1;border-radius:100px 100px 12px 12px;
+  background:linear-gradient(122deg,#f4faff 0 35%,#eaf4ff 36% 42%,#f9fcff 43% 100%);
+  box-shadow:inset 0 0 0 3px #fff;
+}
+#start .shopcard:after{transform:none!important;z-index:2}
+#start .shopcard{overflow:hidden;isolation:isolate}
+#start .shopno,#start .shopname,#start .jar,#start .jarnum{z-index:2}
+#start .jar{width:min(64%,235px)!important;max-width:235px!important;
+  max-height:300px!important;min-height:140px!important;
+  margin:14px auto 10px!important;display:flex;align-items:center;justify-content:center}
+#start .jar svg{width:100%!important;height:100%!important;max-height:300px!important}
+#start .jarnum{margin-top:auto!important;margin-bottom:16px!important}
+#start .shopcard:before{background:linear-gradient(125deg,#f2faff,#e7f4ff 44%,#f9fcff 46%)}
+#start .homegrid{max-width:1030px!important}
+#start .shops{max-width:1030px!important}
+@media(max-height:760px){
+  #start .shopcard:before{top:63px!important;bottom:8px!important}
+  #start .jar{width:min(56%,150px)!important;min-height:60px!important;max-height:145px!important;margin:4px auto!important}
+  #start .jar svg{max-height:145px!important}
+  #start .jarnum{margin-bottom:4px!important}
+}
+
+/* v3.2 — architectural continuity: striped roof, hanging sign, brick piers */
+body:has(#start.active) header{
+ position:relative;isolation:isolate;z-index:2;
+ background:repeating-linear-gradient(105deg,#f5b2d0 0 78px,#fff9f4 78px 156px);
+ border-left:8px solid #fff;border-right:8px solid #fff;border-top:8px solid #fff;
+ box-shadow:inset 7px 0 #c99081,inset -7px 0 #c99081;
+}
+body:has(#start.active) header:before{
+ content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
+ background:linear-gradient(180deg,#ffffff45,#ffffff08 75%,#fff4ef00)
+}
+body:has(#start.active) header .logo-s{
+ border:5px solid #ba7763;border-radius:45px;background:#fff9ed;
+ box-shadow:inset 0 0 0 3px #ffdfbb,0 5px 0 #935b4d,0 7px 9px #7d5a5360;
+}
+body:has(#start.active) header .logo-s:before,
+body:has(#start.active) header .logo-s:after{
+ height:22px;top:-23px;width:5px;background:#a76a4d;border-radius:3px;
+}
+body:has(#start.active) header .pill.home,body:has(#start.active) header #score{
+ z-index:5;box-shadow:0 3px 0 #bba6c2
+}
+#start .candy-storefront{
+ position:relative;
+ background:linear-gradient(90deg,#e4a98e 0 11px,#f9c7a9 11px 22px,#fff9ed 22px calc(100% - 22px),#f9c7a9 calc(100% - 22px) calc(100% - 11px),#e4a98e calc(100% - 11px));
+}
+#start .candy-storefront:before{
+ content:"";position:absolute;z-index:0;top:53px;bottom:65px;left:11px;width:26px;
+ background:repeating-linear-gradient(180deg,#f9d9bb 0 30px,#d9987c 30px 34px,#f4bf9e 34px 62px,#c78370 62px 66px);
+ border-right:3px solid #b97765;pointer-events:none;
+}
+#start .candy-storefront:after{
+ content:"";position:absolute;z-index:0;top:53px;bottom:65px;right:11px;width:26px;
+ background:repeating-linear-gradient(180deg,#f9d9bb 0 30px,#d9987c 30px 34px,#f4bf9e 34px 62px,#c78370 62px 66px);
+ border-left:3px solid #b97765;pointer-events:none;
+}
+#start .store-awning{z-index:4;filter:drop-shadow(0 5px 2px #92596566)}
+#start .store-awning span{border-color:#a95568;border-bottom:5px solid #a95c70;
+ border-radius:0 0 34px 34px;background:#f3a7c8}
+#start .store-awning span:nth-child(even){background:#fffaf5}
+#start .homegrid{position:relative;z-index:1;max-width:980px!important;width:calc(100% - 50px)!important}
+#start .shops{position:relative;z-index:2;max-width:1040px!important}
+#start .shopcard{background:linear-gradient(120deg,#f3f8ff,#fff 48%,#f0f7ff);
+ box-shadow:inset 0 0 0 5px #e8d7f1,0 5px 0 #c18d7d}
+#start .homeside{background:repeating-linear-gradient(120deg,#dceeff 0 75px,#f8fcff 76px 91px,#dceeff 92px 155px)}
+#start .window-actions{position:relative;z-index:1}
+#start .note{position:relative;z-index:1}
+@media(max-height:760px){
+ #start .candy-storefront:before,#start .candy-storefront:after{top:31px;bottom:49px;width:14px}
+ #start .candy-storefront:before{left:5px}
+ #start .candy-storefront:after{right:5px}
+ #start .homegrid{width:calc(100% - 30px)!important}
+}
+
+/* v3.3: architectural details, door-panel glass jar, raised brick foundation */
+#start .shopcard{border-radius:100px 100px 7px 7px;box-shadow:inset 0 0 0 5px #ead9f6,0 7px 0 #b98d7e}
+#start .shopcard:before{left:10%!important;right:10%!important;top:91px!important;bottom:57px!important;
+ border:5px solid #b79ad8;border-radius:110px 110px 25px 25px;
+ background:linear-gradient(130deg,#dbefff 0 21%,#f9fdff 22% 31%,#dceeff 32% 67%,#fff 68% 78%,#e1f2ff 79%);
+ box-shadow:inset 0 0 0 5px #f8f0ff,0 4px 0 #c4a6da}
+#start .shopcard .shopno,#start .shopcard .shopname{position:relative;z-index:3}
+#start .shopcard .jar{position:relative;z-index:3;width:min(78%,265px)!important;max-width:265px!important;
+ max-height:310px!important;margin:6px auto 5px!important;
+ filter:drop-shadow(0 3px 2px #9571b345)}
+#start .shopcard .jar svg{max-height:310px!important}
+#start .shopcard .jarnum{position:relative;z-index:3;background:#ffffffa8;border-radius:16px;
+ padding:3px 9px;margin-bottom:61px!important}
+#start .shopcard{background:linear-gradient(115deg,#f6e8ff 0 10%,#fefaff 11% 90%,#e7d6f8 91%)}
+#start .shopcard:after{width:23px;height:23px;right:4px;top:61%;border:4px solid #b87c40;
+ background:radial-gradient(circle at 32% 28%,#fff5b3 0 24%,#ffcf53 25% 70%,#e6a12f 71%);
+ box-shadow:0 2px 2px #79573955}
+#start .homeside{border-radius:90px 90px 5px 5px;border-color:#ad8bc9;
+ box-shadow:inset 0 0 0 6px #e5d1f4,0 7px 0 #b98d7e}
+#start .homeside:before{content:"";position:absolute;pointer-events:none}
+#start #startBtn{border:3px solid #bd9cf9;box-shadow:0 7px 0 #5e34bb,0 10px 14px #7253a92e;
+ text-shadow:0 2px 3px #674ca17a}
+#start .shops{border-radius:14px 14px 18px 18px;border-top:13px solid #bd7963;
+ border-bottom:15px solid #985a47;
+ box-shadow:inset 0 4px 0 #ffd7ba,0 7px 0 #e5b29c,0 10px 0 #fff2de;
+ background:linear-gradient(180deg,#e7a58b,#c98470)}
+#start .shopchip{border:3px solid #b87661;border-radius:9px;
+ background:linear-gradient(160deg,#ffd0b1 0 10%,#edaa8e 11% 72%,#dc947b 73%);
+ box-shadow:inset 0 2px 0 #ffe1c8,inset 0 -3px 0 #c8856b,0 1px 0 #ffe0c9}
+#start .shopchip.lock{background:linear-gradient(150deg,#f9c3a5,#e6a087 65%,#d68c74)}
+#start .shopchip.lock:after{width:47%;height:14%;border:2px solid #ffd7bc;
+ background:#f8c0a4;box-shadow:0 2px 0 #c88671}
+#start .shopchip.cur,#start .shopchip.done{border-color:#ac82d7;box-shadow:inset 0 0 0 2px #fff,0 2px 0 #9b6dba}
+@media(max-height:760px){
+ #start .shopcard:before{top:63px!important;bottom:32px!important;border-width:3px}
+ #start .shopcard .jar{width:min(68%,160px)!important;max-height:155px!important;margin:2px auto!important}
+ #start .shopcard .jar svg{max-height:155px!important}
+ #start .shopcard .jarnum{margin-bottom:34px!important}
+ #start .shopcard:after{width:15px;height:15px;border-width:2px}
+ #start .shops{border-top-width:8px;border-bottom-width:9px}
+ #start .shopchip{border-width:2px}
+}
+
+/* v3.4 — increase jar presence and finish storefront joinery without changing behavior */
+#start .shopcard{background:linear-gradient(110deg,#f5e5ff,#fff9ff 40%,#f0dfff);
+ border-color:#aa81c3;border-bottom-color:#a47aab;box-shadow:inset 0 0 0 6px #ead6f7,0 7px 0 #a87572}
+#start .shopcard:before{left:9%!important;right:9%!important;top:90px!important;bottom:52px!important;
+ border-radius:110px 110px 28px 28px;border-color:#ae83d6;
+ background:linear-gradient(127deg,#d9edff 0 16%,#fff 17% 25%,#d9edff 26% 66%,#fff 67% 79%,#e1f1ff 80%)}
+#start .shopcard .jar{width:min(92%,320px)!important;max-width:320px!important;
+ min-height:190px!important;max-height:350px!important;margin:0 auto 0!important}
+#start .shopcard .jar svg{width:100%!important;max-height:350px!important;
+ filter:drop-shadow(0 4px 2px #9477a844)}
+#start .shopcard .jarnum{margin-bottom:55px!important;font-weight:800}
+#start .shopcard:after{right:3px;top:59%}
+#start .homeside{border-color:#a986d0;border-bottom-color:#a47ab3;
+ box-shadow:inset 0 0 0 6px #dfc9f4,0 7px 0 #a87572}
+#start #startBtn{position:relative;box-shadow:0 7px 0 #6339b8,0 11px 14px #6948a53d}
+#start #startBtn:before,#start #startBtn:after{content:"✦";position:absolute;top:50%;transform:translateY(-50%);
+ font-size:24px;color:#fff7d5;text-shadow:0 0 8px #fff}
+#start #startBtn:before{left:7%}#start #startBtn:after{right:7%}
+#start .shops{box-shadow:inset 0 5px 0 #ffe1c7,0 7px 0 #c48b74,0 10px 0 #fff4e6}
+#start .shopchip{border-radius:11px;box-shadow:inset 0 3px 0 #ffe3c8,inset 0 -4px 0 #bf8069,0 2px 0 #a96857}
+#start .shopchip.lock:after{height:12%;background:#ffd0b0;border-color:#ffdfc7}
+#start .candy-storefront{box-shadow:inset 0 0 0 3px #d9b3a4,0 14px 23px #896b6b32}
+@media(max-height:760px){
+ #start .shopcard:before{top:63px!important;bottom:28px!important}
+ #start .shopcard .jar{width:min(78%,185px)!important;max-height:160px!important;min-height:65px!important}
+ #start .shopcard .jar svg{max-height:160px!important}
+ #start .shopcard .jarnum{margin-bottom:29px!important}
+ #start #startBtn:before,#start #startBtn:after{font-size:15px}
+}
+
+/* v3.5 — centered storefront with breathing room and candy-town scenery */
+body:has(#start.active){background:
+ radial-gradient(circle at 7% 71%,#9bdd80 0 25px,transparent 27px),
+ radial-gradient(circle at 94% 73%,#9bdd80 0 34px,transparent 36px),
+ linear-gradient(180deg,#c5ebff 0%,#e6f7ff 51%,#e6f4cd 52%,#fbeadf 100%)!important}
+body:has(#start.active) .app{background:transparent!important}
+body:has(#start.active) header{
+ width:88%!important;max-width:1250px!important;margin-left:auto!important;margin-right:auto!important;
+ border-radius:18px 18px 0 0!important;box-sizing:border-box}
+body:has(#start.active) .progress{width:88%!important;max-width:1250px!important;margin-left:auto!important;margin-right:auto!important}
+#start{position:relative;isolation:isolate;background:transparent!important;overflow:visible!important}
+#start:before,#start:after{position:absolute;z-index:-1;pointer-events:none;bottom:12%;font-size:clamp(24px,4vw,66px);line-height:1;
+ filter:drop-shadow(0 4px 2px #6eae7a33)}
+#start:before{content:"🌳";left:1%}
+#start:after{content:"🌼";right:2%}
+#start .candy-storefront{
+ width:88%!important;max-width:1250px!important;margin-left:auto!important;margin-right:auto!important;
+ box-sizing:border-box!important;flex:1 1 auto;
+ border-radius:0 0 22px 22px!important;
+ box-shadow:inset 0 0 0 3px #d9b3a4,0 12px 24px #6b947b3c!important}
+#start .homegrid{width:calc(100% - 34px)!important;max-width:980px!important;gap:14px}
+#start .shops{width:calc(100% - 20px)!important;max-width:1020px!important}
+#start .shopcard .jar{width:min(95%,335px)!important;max-width:335px!important;
+ max-height:370px!important;margin:12px auto 0!important;align-items:center!important;justify-content:center!important}
+#start .shopcard .jar svg{max-height:370px!important}
+#start .shopcard .jarnum{margin-bottom:38px!important}
+#start .shopcard:before{top:94px!important;bottom:38px!important}
+#start .shopcard:after{right:3px!important}
+#start .shopcard{position:relative}
+#start .shopcard .shopname:before,#start .shopcard .shopname:after{
+ content:"";position:absolute;pointer-events:none;width:9px;height:25px;left:-5%;top:140px;
+ border-radius:6px;border:2px solid #bd8e4e;background:linear-gradient(90deg,#ffdb76,#f5ae39);
+ box-shadow:0 2px 2px #a6757d55}
+#start .shopcard .shopname:after{top:260px}
+@media(max-height:760px){
+ #start .shopcard .jar{width:min(83%,195px)!important;max-height:165px!important;margin:2px auto!important}
+ #start .shopcard .jar svg{max-height:165px!important}
+ #start .shopcard .jarnum{margin-bottom:22px!important}
+ #start .shopcard:before{top:64px!important;bottom:24px!important}
+ #start .shopcard .shopname:before{top:75px;height:13px}
+ #start .shopcard .shopname:after{top:150px;height:13px}
+}
+@media(max-width:900px){
+ body:has(#start.active) header,body:has(#start.active) .progress,#start .candy-storefront{width:94%!important}
+ #start .homegrid{gap:8px}
+ #start:before,#start:after{font-size:27px}
+}
+
+/* v3.6 — storefront refinement; home screen only */
+body:has(#start.active){background:
+ linear-gradient(180deg,#c8edff 0%,#e1f5ff 47%,#e7f2d8 48%,#f6eadc 100%)!important}
+#start:before,#start:after{content:"";bottom:9%;width:clamp(30px,5vw,74px);height:clamp(40px,7vw,100px);
+ border-radius:45% 45% 12% 12%;background:
+ radial-gradient(circle at 50% 30%,#a6d88d 0 34%,transparent 35%),
+ radial-gradient(circle at 24% 45%,#82c67b 0 29%,transparent 30%),
+ radial-gradient(circle at 75% 47%,#9bd18a 0 30%,transparent 31%),
+ linear-gradient(90deg,transparent 45%,#b47d62 45% 55%,transparent 55%);
+ filter:drop-shadow(0 4px 3px #83a97844)}
+#start:before{left:0}#start:after{right:0}
+#start .candy-storefront{width:87%!important;max-width:1220px!important;
+ border-top:3px solid #fff!important;border-radius:22px!important;
+ box-shadow:inset 0 0 0 3px #d9b3a4,0 13px 24px #6b947b3c!important}
+#start .candy-storefront:after{content:"";position:absolute;pointer-events:none;z-index:0;
+ bottom:0;left:0;right:0;height:6px;background:linear-gradient(90deg,#d8a58b,#f7d9bd,#d8a58b)}
+#start .shopcard{background:linear-gradient(135deg,#fff6ff,#f8ecff 65%,#f1e2ff)!important}
+#start .shopcard:before{background:linear-gradient(128deg,#d7edff 0 16%,#fff 17% 23%,#d7edff 24% 68%,#fff 69% 77%,#d7edff 78%)!important}
+#start .shopcard .jar{width:min(100%,365px)!important;max-width:365px!important;
+ max-height:390px!important;margin:22px auto 0!important}
+#start .shopcard .jar svg{max-height:390px!important;filter:drop-shadow(0 5px 4px #826a9d55)}
+#start .shopcard .jarnum{margin-bottom:20px!important}
+#start .shopcard .shopname:before,#start .shopcard .shopname:after{content:none!important}
+#start .homeside{background:linear-gradient(125deg,#d7ebff 0 24%,#e4f2ff 25% 58%,#f6fbff 59% 64%,#dceeff 65%)!important;
+ border:5px solid #ac8bca!important;box-shadow:inset 0 0 0 7px #f7efff,0 7px 0 #a87572!important}
+#start .homeside:before{content:"";position:absolute;pointer-events:none;inset:0;
+ border-radius:inherit;box-shadow:inset 0 0 0 2px #ffffffaa}
+#start #startBtn{box-shadow:0 7px 0 #6339b8,0 10px 12px #6948a52a!important}
+#start .shops{box-shadow:inset 0 5px 0 #ffe1c7,0 6px 0 #bb826c!important}
+@media(max-height:760px){
+ #start .shopcard .jar{width:min(85%,210px)!important;max-height:175px!important;margin:4px auto 0!important}
+ #start .shopcard .jar svg{max-height:175px!important}
+ #start .shopcard .jarnum{margin-bottom:14px!important}
+}
+@media(max-width:900px){
+ #start .candy-storefront{width:93%!important}
+ #start:before,#start:after{width:24px;height:42px}
+}
 </style>
 </head>
 <body>
@@ -545,9 +1075,10 @@
 
   <!-- スタート（ホーム） -->
   <section class="screen active" id="start">
-    <div class="card center scroll">
-      <div class="logo-l"><span class="logo-crop"><img src="../img/kanji-candy-logo.png" alt="KANJI CANDY" class="brand-logo-img"></span></div>
+    <div class="card center scroll candy-storefront">
+
       
+      <div class="store-awning" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
       <div class="homegrid">
         <div class="shopcard">
           <div class="shopno" id="shopNo"></div>
@@ -556,8 +1087,8 @@
           <div class="jarnum" id="jarNum"></div>
         </div>
         <div class="homeside">
-          <button class="primary" id="startBtn">はじめる</button>
-          <div class="rewardrow"><div class="choco" id="choco"></div><button id="zukanBtn">📖 キャンディ図鑑</button></div>
+          <div class="window-actions"><button class="primary" id="startBtn">はじめる</button>
+          <div class="rewardrow"><div class="choco" id="choco"></div><button id="zukanBtn">📖 キャンディ図鑑</button></div></div>
           <div class="pens"><div class="t">ペンの色（お店をクリアすると増えるよ）</div><div class="dots" id="pens"></div></div>
           
         </div>
@@ -783,8 +1314,8 @@ function renderHome(){
     `<button class="pen${col==='rainbow'?' rainbow':''}${S.pen===i?' sel':''}" data-pen="${i}" title="${nm}" style="background:${col==='rainbow'?'':col}"></button>`:
     `<button class="pen lock" disabled>🔒</button>`).join('');
   $('shops').innerHTML=SHOPS.map((x,i)=>{
-    const done=S.cleared.includes(i),cur=i===cs,vis=i<=cs+1;
-    return `<div class="shopchip${done?' done':cur?' cur':' lock'}"><span class="ic">${done?'🌟':vis?x.ic:'🔒'}</span>${vis?x.name.replace('屋さん',''):'？'}</div>`}).join('');
+    const done=S.cleared.includes(i),cur=i===cs,vis=done||cur;
+    return `<div class="shopchip${done?' done':cur?' cur':' lock'}">${vis?`<span class="ic">${x.ic}</span>`:''}</div>`}).join('');
   updateScore();
 }
 $('pens').addEventListener('click',e=>{const b=e.target.closest('[data-pen]');if(!b)return;S.pen=+b.dataset.pen;save();renderHome()});
