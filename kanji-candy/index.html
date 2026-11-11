@@ -1059,10 +1059,80 @@ body:has(#start.active){background:
  #start .candy-storefront{width:93%!important}
  #start:before,#start:after{width:24px;height:42px}
 }
+
+/* v3.7 — single semantic building, joined roof and wall; balanced button type */
+.store-building{display:contents}
+body:has(#start.active) header{
+ width:87%!important;max-width:1220px!important;box-sizing:border-box!important;
+ margin:0 auto!important;padding:7px 18px 6px!important;
+ background:#fff8e9!important;border:3px solid #fff!important;border-bottom:0!important;
+ border-radius:22px 22px 0 0!important;box-shadow:none!important;min-height:74px!important}
+body:has(#start.active) header .logo-s{display:none!important}
+body:has(#start.active) header .meta{width:100%!important;display:flex!important;justify-content:space-between!important}
+body:has(#start.active) header #penPill{display:none!important}
+body:has(#start.active) .progress{display:none!important}
+#start .candy-storefront{width:87%!important;max-width:1220px!important;
+ border-top:0!important;border-radius:0 0 22px 22px!important;
+ margin-top:0!important;padding-top:0!important}
+#start .store-awning{margin-top:-3px!important}
+#start .shopcard .jar{width:min(100%,365px)!important}
+#start #startBtn{font-size:clamp(20px,2.2vw,30px)!important;letter-spacing:.09em!important;font-weight:800!important}
+#start .rewardrow .choco{font-size:clamp(14px,1.3vw,20px)!important;line-height:1.3!important}
+#start .rewardrow #zukanBtn{font-size:clamp(13px,1.2vw,19px)!important;font-weight:800!important;white-space:nowrap!important}
+body:has(#start.active) header .pill{font-size:clamp(13px,1.25vw,18px)!important;font-weight:800!important}
+#start .pens .t{font-size:clamp(12px,1.1vw,17px)!important;line-height:1.35!important}
+#start .shopno{font-size:clamp(12px,1vw,16px)!important}
+#start .shopname{font-size:clamp(19px,1.7vw,26px)!important}
+@media(max-width:900px){
+ body:has(#start.active) header,#start .candy-storefront{width:93%!important}
+ body:has(#start.active) header{min-height:54px!important;padding:4px 10px!important}
+ #start #startBtn{font-size:20px!important}
+ #start .rewardrow #zukanBtn{font-size:12px!important}
+}
+
+/* v3.8 — restore the hanging sign, striped canopy, and edge-aligned controls */
+body:has(#start.active) header{
+ display:grid!important;grid-template-columns:minmax(115px,1fr) auto minmax(115px,1fr)!important;
+ align-items:center!important;gap:10px!important;
+ background:repeating-linear-gradient(105deg,#f5b2d0 0 78px,#fff9f4 78px 156px)!important;
+ border-left:8px solid #fff!important;border-right:8px solid #fff!important;
+ border-top:8px solid #fff!important;border-bottom:0!important;
+ border-radius:20px 20px 0 0!important;
+ box-shadow:inset 7px 0 #c99081,inset -7px 0 #c99081!important;
+ min-height:95px!important;padding:7px 15px 10px!important;
+ position:relative!important;isolation:isolate!important;z-index:2!important}
+body:has(#start.active) header .logo-s{
+ display:block!important;grid-column:2!important;grid-row:1!important;
+ justify-self:center!important;margin:0!important;position:relative!important;
+ padding:5px 20px 7px!important;background:#fff9ed!important;
+ border:5px solid #ba7763!important;border-radius:45px!important;
+ box-shadow:inset 0 0 0 3px #ffdfbb,0 5px 0 #935b4d,0 7px 9px #7d5a5360!important}
+body:has(#start.active) header .logo-s .logo-crop{width:390px!important;height:76px!important;max-width:43vw!important}
+body:has(#start.active) header .logo-s .logo-crop img{width:390px!important;height:390px!important}
+body:has(#start.active) header .logo-s:before,body:has(#start.active) header .logo-s:after{
+ content:""!important;position:absolute!important;top:-25px!important;
+ height:24px!important;width:5px!important;background:#a76a4d!important}
+body:has(#start.active) header .meta{display:contents!important}
+body:has(#start.active) header .pill.home{grid-column:1!important;grid-row:1!important;justify-self:start!important}
+body:has(#start.active) header #score{grid-column:3!important;grid-row:1!important;justify-self:end!important}
+body:has(#start.active) header #penPill{display:none!important}
+#start .candy-storefront{border-top:0!important;margin-top:0!important}
+#start .store-awning{margin-top:-3px!important}
+@media(max-width:900px){
+ body:has(#start.active) header{grid-template-columns:minmax(80px,1fr) auto minmax(80px,1fr)!important;min-height:72px!important;padding:4px 8px 7px!important}
+ body:has(#start.active) header .logo-s{padding:3px 7px 4px!important;border-width:3px!important}
+ body:has(#start.active) header .logo-s .logo-crop{width:250px!important;height:52px!important;max-width:39vw!important}
+ body:has(#start.active) header .logo-s .logo-crop img{width:250px!important;height:250px!important}
+}
+/* v3.9 — awning stripe alignment only: 12 equal vertical bands matching scallops */
+body:has(#start.active) header{
+ background:linear-gradient(90deg,#f5b2d0 0 50%,#fff9f4 50% 100%) left top / 16.6666667% 100% repeat-x!important;
+}
 </style>
 </head>
 <body>
 <div class="app">
+  <div class="store-building" aria-label="キャンディショップの建物">
   <header>
     <h1 class="logo-s"><span class="logo-crop"><img src="../img/kanji-candy-logo.png" alt="KANJI CANDY" class="brand-logo-img"></span></h1>
     <div class="meta">
@@ -1097,6 +1167,8 @@ body:has(#start.active){background:
       <p class="note">進み具合は、この端末のブラウザに保存されます。 <button class="reset" id="backupBtn">バックアップ</button><span class="note-sep">｜</span><button class="reset" id="resetBtn">記録をリセット</button></p>
     </div>
   </section>
+
+  </div><!-- /store-building: shared roof, awning and storefront -->
 
   <!-- 図鑑 -->
   <section class="screen" id="zukan">
