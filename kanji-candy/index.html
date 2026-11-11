@@ -413,6 +413,68 @@
     #start .logo-l .logo-crop{width:300px;height:64px}
     #start .logo-l .logo-crop img{width:300px;height:300px}
   }
+
+  /* === v1.7 / logo cream surfaces + full 10 x 2 shop shelf === */
+  :root{--candy-cream:#fefee6}
+  #start .card{background:var(--candy-cream);padding:12px 22px 9px}
+  #start .shopcard,#start .pens,#start .choco,#start .shopchip{background:var(--candy-cream)}
+  #start .shopcard{background:linear-gradient(160deg,var(--candy-cream),#fff9ee);padding:9px 13px 10px}
+  #start .logo-l{height:80px;margin-bottom:5px}
+  #start .logo-l .logo-crop{height:76px;width:440px}
+  #start .logo-l .logo-crop img{height:440px;width:440px}
+  #start .homegrid{flex:1 1 auto;min-height:0;margin:0 auto 8px;gap:20px}
+  #start .shopname{margin:0 0 3px;font-size:24px}
+  #start .jar{max-height:185px;width:135px;margin:2px auto 4px}
+  #start .jar svg{max-height:185px}
+  #start .jarnum{margin-top:1px;font-size:18px}
+  #start .homeside{gap:10px}
+  #start #startBtn{min-height:65px;font-size:26px}
+  #start .rewardrow #zukanBtn{min-height:54px}
+  #start .pens{padding:12px 15px;justify-content:center}
+  #start .pens .t{margin-bottom:9px}
+  #start .pens .dots{row-gap:10px;column-gap:10px}
+  #start .shops{display:grid;grid-template-columns:repeat(10,minmax(0,1fr));grid-template-rows:repeat(2,minmax(0,1fr));
+    width:100%;max-width:1040px;min-height:0;flex:none;overflow:visible;gap:7px;
+    margin:0 auto 4px;padding:3px 1px 6px}
+  #start .shopchip{min-width:0;width:100%;height:66px;padding:5px 1px 4px;border-radius:13px;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:12px;line-height:1.2}
+  #start .shopchip .ic{font-size:19px;line-height:1.25}
+  #start .shopchip.cur{background:#f7efff}
+  #start .shopchip.done{background:#fff5ce}
+  #start .note{margin:2px auto 0}
+  @media(max-height:760px){
+    #start .card{padding:7px 15px 6px}
+    #start .logo-l{height:56px;margin-bottom:3px}
+    #start .logo-l .logo-crop{width:330px;height:54px}
+    #start .logo-l .logo-crop img{width:330px;height:330px}
+    #start .homegrid{margin-bottom:5px;gap:12px}
+    #start .shopcard{padding:6px 10px}
+    #start .shopname{font-size:20px}
+    #start .jar{max-height:115px;width:95px}
+    #start .jar svg{max-height:115px}
+    #start .jarnum{font-size:15px}
+    #start .homeside{gap:6px}
+    #start #startBtn{min-height:49px;font-size:22px}
+    #start .rewardrow #zukanBtn{min-height:43px}
+    #start .pens{padding:7px 10px}
+    #start .pens .t{margin-bottom:5px}
+    #start .pens .dots{row-gap:6px;column-gap:7px}
+    #start .shopchip{height:52px;font-size:10px}
+    #start .shopchip .ic{font-size:16px}
+    #start .shops{gap:5px}
+  }
+  @media(max-width:760px){
+    #start .shops{gap:3px}
+    #start .shopchip{font-size:9px;padding:3px 0}
+    #start .shopchip .ic{font-size:15px}
+  }
+
+  /* === v1.7 final: cream background only, white panels === */
+  #start .card{background:var(--candy-cream)}
+  #start .shopcard,#start .pens,#start .choco,#start .shopchip{background:#fff}
+  #start .shopcard{background:#fff}
+  #start .shopchip.cur{background:#fff}
+  #start .shopchip.done{background:#fff}
 </style>
 </head>
 <body>
