@@ -382,12 +382,43 @@
   #start .logo-l{max-width:none;margin:0 auto 8px;flex:none}
   #start .logo-l .brand-logo-img{display:block;height:clamp(88px,16vh,160px);width:auto;max-width:100%;object-fit:contain;margin:auto}
   @media(max-height:760px){#start .logo-l .brand-logo-img{height:clamp(64px,13vh,110px)}}
+
+  /* === v1.6: wide logo crop, aligned lower edges === */
+  .logo-s .logo-crop{display:block;position:relative;overflow:hidden;width:150px;height:39px;border-radius:0;background:transparent}
+  .logo-s .logo-crop img{position:absolute;width:150px;height:150px;max-width:none;max-height:none;object-fit:cover;left:0;top:50%;transform:translateY(-50%)}
+  #start .card{justify-content:flex-start}
+  #start .logo-l{display:flex;align-items:center;justify-content:center;width:100%;max-width:none;margin:0 auto 10px;height:100px;flex:none}
+  #start .logo-l .logo-crop{position:relative;display:block;overflow:hidden;width:490px;height:96px;background:transparent}
+  #start .logo-l .logo-crop img{position:absolute;display:block;width:490px;height:490px;max-width:none;max-height:none;object-fit:cover;left:0;top:50%;transform:translateY(-50%)}
+  #start .homegrid{flex:1 1 auto;min-height:0;margin:0 auto 10px;align-items:stretch}
+  #start .shopcard{min-height:0;justify-content:flex-start}
+  #start .homeside{height:100%;min-height:0;align-self:stretch;justify-content:flex-start}
+  #start .pens{flex:1 1 auto;min-height:0;display:flex;flex-direction:column;justify-content:center;padding:18px 18px}
+  #start .pens .t{margin-bottom:14px}
+  #start .pens .dots{align-content:center;row-gap:14px;column-gap:12px}
+  #start .jar{min-height:0;max-height:250px}
+  @media(max-height:760px){
+    #start .logo-l{height:70px;margin-bottom:6px}
+    #start .logo-l .logo-crop{width:360px;height:68px}
+    #start .logo-l .logo-crop img{width:360px;height:360px}
+    #start .homegrid{margin-bottom:6px}
+    #start .pens{padding:10px 13px}
+    #start .pens .t{margin-bottom:7px}
+    #start .pens .dots{row-gap:8px;column-gap:9px}
+    #start .jar{max-height:175px}
+  }
+  @media(max-width:760px){
+    .logo-s .logo-crop{width:104px;height:32px}
+    .logo-s .logo-crop img{width:104px;height:104px}
+    #start .logo-l .logo-crop{width:300px;height:64px}
+    #start .logo-l .logo-crop img{width:300px;height:300px}
+  }
 </style>
 </head>
 <body>
 <div class="app">
   <header>
-    <h1 class="logo-s"><img src="../img/kanji-candy-logo.png" alt="KANJI CANDY" class="brand-logo-img"></h1>
+    <h1 class="logo-s"><span class="logo-crop"><img src="../img/kanji-candy-logo.png" alt="KANJI CANDY" class="brand-logo-img"></span></h1>
     <div class="meta">
       <a class="pill home" href="https://ainotenoue.github.io/">ひろばへ戻る</a>
       <span class="pill" id="penPill">指でも書けます</span>
@@ -399,7 +430,7 @@
   <!-- スタート（ホーム） -->
   <section class="screen active" id="start">
     <div class="card center scroll">
-      <div class="logo-l"><img src="../img/kanji-candy-logo.png" alt="KANJI CANDY" class="brand-logo-img"></div>
+      <div class="logo-l"><span class="logo-crop"><img src="../img/kanji-candy-logo.png" alt="KANJI CANDY" class="brand-logo-img"></span></div>
       
       <div class="homegrid">
         <div class="shopcard">
