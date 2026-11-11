@@ -468,6 +468,156 @@
     #start .shopchip{font-size:9px;padding:3px 0}
     #start .shopchip .ic{font-size:15px}
   }
+
+  /* === v1.7 final: cream background only, white panels === */
+  #start .card{background:var(--candy-cream)}
+  #start .shopcard,#start .pens,#start .choco,#start .shopchip{background:#fff}
+  #start .shopcard{background:#fff}
+  #start .shopchip.cur{background:#fff}
+  #start .shopchip.done{background:#fff}
+
+  /* === v1.8: rebalance title, middle panels, and complete shop grid === */
+  #start .card{padding:14px 22px 11px}
+  #start .logo-l{height:105px;margin:0 auto 13px;flex:none}
+  #start .logo-l .logo-crop{width:455px;height:92px}
+  #start .logo-l .logo-crop img{width:455px;height:455px}
+  #start .homegrid{width:100%;max-width:830px;flex:1 1 auto;min-height:0;
+    gap:18px;margin:0 auto 9px;align-items:stretch}
+  #start .shopcard{min-height:0;padding:10px 14px}
+  #start .shopname{font-size:23px;margin:0 0 2px}
+  #start .jar{max-height:155px;width:125px;min-height:0;flex:0 1 155px}
+  #start .jar svg{max-height:155px}
+  #start .homeside{min-height:0;gap:9px}
+  #start #startBtn{min-height:60px;font-size:25px}
+  #start .rewardrow{grid-template-columns:minmax(0,1fr) 175px;gap:10px}
+  #start .rewardrow .choco{font-size:17px;white-space:nowrap}
+  #start .rewardrow #zukanBtn{min-height:54px;font-size:17px;padding:7px 8px;white-space:nowrap}
+  #start .pens{min-height:0;flex:1 1 auto;padding:12px 16px;justify-content:center}
+  #start .pens .t{margin-bottom:11px}
+  #start .pens .dots{row-gap:12px;column-gap:10px}
+  #start .shops{box-sizing:border-box;display:grid;grid-template-columns:repeat(10,minmax(0,1fr));
+    grid-template-rows:repeat(2,auto);width:100%;max-width:950px;
+    gap:7px;min-height:0;flex:none;overflow:hidden;padding:4px 5px 7px;margin:0 auto 4px}
+  #start .shopchip{box-sizing:border-box;min-width:0;max-width:100%;width:100%;
+    height:62px;padding:4px 0;font-size:11px;overflow:hidden}
+  #start .shopchip .ic{font-size:18px}
+  #start .note{margin:3px auto 0}
+  @media(max-height:760px){
+    #start .card{padding:8px 15px 7px}
+    #start .logo-l{height:70px;margin-bottom:8px}
+    #start .logo-l .logo-crop{width:350px;height:68px}
+    #start .logo-l .logo-crop img{width:350px;height:350px}
+    #start .homegrid{gap:12px;margin-bottom:6px}
+    #start .shopcard{padding:7px 10px}
+    #start .jar{max-height:110px;width:95px;flex-basis:110px}
+    #start .jar svg{max-height:110px}
+    #start .homeside{gap:6px}
+    #start #startBtn{min-height:49px;font-size:22px}
+    #start .rewardrow{grid-template-columns:minmax(0,1fr) 145px;gap:7px}
+    #start .rewardrow #zukanBtn{font-size:14px;min-height:44px}
+    #start .rewardrow .choco{font-size:14px}
+    #start .pens{padding:7px 10px}
+    #start .pens .t{margin-bottom:5px}
+    #start .pens .dots{row-gap:7px;column-gap:7px}
+    #start .shops{gap:5px}
+    #start .shopchip{height:50px;font-size:10px}
+    #start .shopchip .ic{font-size:15px}
+  }
+  @media(max-width:760px){
+    #start .shops{gap:3px;padding-left:2px;padding-right:2px}
+    #start .shopchip{font-size:9px}
+    #start .rewardrow{grid-template-columns:minmax(0,1fr) 115px}
+    #start .rewardrow #zukanBtn{font-size:12px}
+  }
+
+  /* === Storefront concept v2.0 / decorative layout, no gameplay changes === */
+  :root{--store-cream:#fff9e9;--store-trim:#b99edb;--store-pink:#f7bfd7;--store-lav:#d9c9f7}
+  body{background:
+    radial-gradient(circle at 12% 18%,rgba(241,172,242,.32) 0 3px,transparent 4px) 0 0/90px 90px,
+    radial-gradient(circle at 60% 70%,rgba(255,255,255,.7) 0 2.5px,transparent 3.5px) 0 0/90px 90px,
+    linear-gradient(180deg,#e7f3e8,#d9ecdf)}
+  .app{padding-top:8px;padding-bottom:8px}
+  header{position:relative;background:var(--store-cream);border:3px solid #fff;border-bottom:0;
+    border-radius:22px 22px 0 0;padding:7px 17px 5px;box-shadow:0 -2px 16px rgba(151,126,242,.1);z-index:2}
+  header .logo-s .logo-crop{width:150px;height:35px}
+  header .logo-s .logo-crop img{width:150px;height:150px}
+  header .meta{gap:8px}
+  header .pill{background:#fff;border:2px solid #efe3f5;box-shadow:0 2px 0 #e7d6ee}
+  .progress{height:7px;margin:0 0 0;background:#d7c2ec;border-radius:0;box-shadow:none;z-index:2}
+  #start .candy-storefront{position:relative;isolation:isolate;overflow:hidden;display:flex;flex-direction:column;
+    padding:5px 20px 9px;border:3px solid #fff;border-top:0;border-radius:0 0 25px 25px;
+    background:var(--store-cream);box-shadow:0 14px 28px rgba(122,91,147,.13);justify-content:flex-start}
+  #start .candy-storefront:before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
+    background:linear-gradient(90deg,rgba(225,202,237,.17) 0 9px,transparent 9px calc(100% - 9px),rgba(225,202,237,.17) calc(100% - 9px))}
+  #start .logo-l{height:79px;margin:0 auto 1px;flex:none}
+  #start .logo-l .logo-crop{height:73px;width:400px}
+  #start .logo-l .logo-crop img{width:400px;height:400px}
+  #start .store-awning{width:calc(100% + 28px);margin:0 -14px 12px;height:52px;display:grid;
+    grid-template-columns:repeat(12,minmax(0,1fr));flex:none;
+    filter:drop-shadow(0 4px 1px rgba(145,104,154,.18))}
+  #start .store-awning span{display:block;height:44px;border:1.5px solid #c5a7cf;border-top:3px solid #ac8bca;
+    border-radius:0 0 22px 22px;background:var(--store-pink)}
+  #start .store-awning span:nth-child(even){background:#fefbf6}
+  #start .store-awning span:first-child{border-bottom-left-radius:25px}
+  #start .store-awning span:last-child{border-bottom-right-radius:25px}
+  #start .homegrid{width:100%;max-width:860px;gap:16px;min-height:0;flex:1 1 auto;
+    margin:0 auto 9px;align-items:stretch}
+  #start .shopcard{position:relative;width:41%;background:#fff;border:3px solid #d7c2e6;
+    border-radius:18px 18px 8px 8px;box-shadow:inset 0 0 0 5px #f9f1fc,0 5px 0 #d4bad9;
+    padding:8px 12px 9px;min-height:0}
+  #start .shopcard:before{content:"ショーウィンドウ";position:absolute;top:-10px;left:50%;
+    transform:translateX(-50%);white-space:nowrap;background:#fff4d6;border:1px solid #d8b6d2;
+    border-radius:99px;padding:2px 13px;font-size:10px;font-weight:700;letter-spacing:.06em;color:#9672b0}
+  #start .shopno{margin-top:6px}
+  #start .jar{max-height:145px;width:118px;flex-basis:145px}
+  #start .jar svg{max-height:145px}
+  #start .homeside{width:59%;gap:8px}
+  #start #startBtn{min-height:55px;border-radius:14px 14px 20px 20px;
+    box-shadow:0 5px 0 #6f58cf;font-size:24px}
+  #start .rewardrow{gap:9px}
+  #start .rewardrow .choco,#start .rewardrow #zukanBtn{border-radius:12px;background:#fff}
+  #start .pens{border-radius:14px 14px 8px 8px;border-color:#d7c2e6;box-shadow:0 5px 0 #e3d2e7;
+    background:#fff;padding:10px 14px;justify-content:center}
+  #start .pens .t{margin-bottom:8px}
+  #start .pens .dots{row-gap:9px;column-gap:9px}
+  #start .shops{position:relative;width:100%;max-width:990px;gap:6px;
+    background:#f6e8d4;border:3px solid #d4bba9;border-radius:11px;padding:8px 9px 9px;
+    margin:0 auto 4px;box-shadow:0 5px 0 #c5a58f}
+  #start .shopchip{background:#fff;border-color:#e4d2ed;border-radius:8px;height:57px}
+  #start .shopchip.cur{background:#fff5fe;border-color:#977ef2}
+  #start .shopchip.done{background:#fff9e5;border-color:#ebce81}
+  #start .note{margin-top:7px;font-size:11px}
+  @media(max-height:760px){
+    header{padding:4px 12px 3px}
+    #start .candy-storefront{padding:3px 12px 6px}
+    #start .logo-l{height:55px;margin-bottom:0}
+    #start .logo-l .logo-crop{width:310px;height:52px}
+    #start .logo-l .logo-crop img{width:310px;height:310px}
+    #start .store-awning{height:34px;margin:0 -9px 8px;width:calc(100% + 18px)}
+    #start .store-awning span{height:29px;border-radius:0 0 15px 15px}
+    #start .homegrid{gap:11px;margin-bottom:6px}
+    #start .shopcard{padding:5px 9px 6px}
+    #start .shopno{margin-top:5px}
+    #start .jar{max-height:90px;width:85px;flex-basis:90px}
+    #start .jar svg{max-height:90px}
+    #start .homeside{gap:5px}
+    #start #startBtn{min-height:43px;font-size:20px}
+    #start .pens{padding:6px 10px}
+    #start .pens .t{margin-bottom:4px}
+    #start .pens .dots{row-gap:5px;column-gap:6px}
+    #start .shops{padding:5px 6px 6px;gap:4px}
+    #start .shopchip{height:44px}
+    #start .note{margin-top:5px}
+  }
+  @media(max-width:760px){
+    header .logo-s .logo-crop{width:100px;height:30px}
+    header .logo-s .logo-crop img{width:100px;height:100px}
+    header .meta{gap:4px}
+    header .pill{padding:3px 6px;font-size:11px}
+    #start .store-awning{grid-template-columns:repeat(12,minmax(0,1fr))}
+    #start .shops{gap:3px;padding:5px 3px}
+    #start .shopchip{font-size:9px}
+  }
 </style>
 </head>
 <body>
@@ -484,9 +634,10 @@
 
   <!-- スタート（ホーム） -->
   <section class="screen active" id="start">
-    <div class="card center scroll">
+    <div class="card center scroll candy-storefront">
       <div class="logo-l"><span class="logo-crop"><img src="../img/kanji-candy-logo.png" alt="KANJI CANDY" class="brand-logo-img"></span></div>
       
+      <div class="store-awning" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
       <div class="homegrid">
         <div class="shopcard">
           <div class="shopno" id="shopNo"></div>
@@ -496,7 +647,7 @@
         </div>
         <div class="homeside">
           <button class="primary" id="startBtn">はじめる</button>
-          <div class="rewardrow"><div class="choco" id="choco"></div><button id="zukanBtn">📖 図鑑</button></div>
+          <div class="rewardrow"><div class="choco" id="choco"></div><button id="zukanBtn">📖 キャンディ図鑑</button></div>
           <div class="pens"><div class="t">ペンの色（お店をクリアすると増えるよ）</div><div class="dots" id="pens"></div></div>
           
         </div>
@@ -716,7 +867,7 @@ function renderHome(){
   const pool=ALL.filter(q=>q.shop<=cs&&!isDone(q)).length;
   $('startBtn').disabled=!pool;$('startBtn').textContent=pool?'はじめる':'じゅんび中';
   const c=S.choco,streak=(c.last===today()||c.last===yesterday())?c.streak:0;
-  $('choco').innerHTML=`🍫 チョコ <b>× ${c.n}</b>　${c.last===today()?'':'今日の10問でもらえるよ'}${streak>1?`<br><small>${streak}日つづけてるよ！</small>`:''}`;
+  $('choco').innerHTML=`🍫 チョコ <b>× ${c.n}</b>　${streak>1?`<br><small>${streak}日つづけてるよ！</small>`:''}`;
   const open=1+S.cleared.length;
   $('pens').innerHTML=PENS.map(([nm,col],i)=>i<open?
     `<button class="pen${col==='rainbow'?' rainbow':''}${S.pen===i?' sel':''}" data-pen="${i}" title="${nm}" style="background:${col==='rainbow'?'':col}"></button>`:
