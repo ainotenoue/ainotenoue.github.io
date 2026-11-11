@@ -1450,6 +1450,30 @@ body:has(#start.active) header{
  background-size:calc(16.6666667% + 3px) 100%!important;
  background-position:-7px top!important;
 }
+
+/* 学びのカレンダー v1.0 — reusable visual component */
+#choco{cursor:pointer;user-select:none;transition:filter .15s}
+#choco:focus-visible{outline:3px solid #8c6be2;outline-offset:3px}
+#choco:active{filter:brightness(.96)}
+#calendar .card{flex:1;min-height:0;overflow:auto;background:#fffaf0;border:5px solid #fff;border-radius:30px;padding:clamp(12px,2vw,26px);display:flex;flex-direction:column;align-items:center;gap:12px}
+.cal-shell{width:min(100%,760px);background:#fff;border:3px solid #d9c3e9;border-radius:28px;box-shadow:0 7px 0 #c8a6c9;padding:clamp(12px,2vw,24px);color:#70538e}
+.cal-head{display:flex;align-items:center;justify-content:space-between;gap:12px;width:100%}
+.cal-head h2{font-size:clamp(21px,2.8vw,32px);margin:0;color:#7356b5}
+.cal-back{font-size:16px;border-radius:18px;padding:9px 18px}
+.cal-sub{text-align:center;color:#987caa;font-weight:700;font-size:14px;margin:4px 0 12px}
+.cal-monthbar{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:0 auto 12px;max-width:470px}
+.cal-monthbar strong{font-size:clamp(18px,2.4vw,27px)}
+.cal-monthbar button{border:2px solid #d8c3e7;background:#fff;border-radius:16px;padding:7px 16px;color:#785bb7;font-weight:800}
+.cal-monthbar button:disabled{opacity:.28}
+.cal-grid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:clamp(4px,.8vw,10px);max-width:620px;margin:auto}
+.cal-week{text-align:center;font-size:14px;color:#9b82b2;font-weight:800}
+.cal-day{aspect-ratio:1;min-height:0;background:#faf6fc;border-radius:14px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;font-size:clamp(11px,1.4vw,16px);color:#9b89aa}
+.cal-day.studied{background:#f8dfca;color:#76513d}
+.cal-day .cal-mark{font-size:clamp(15px,2.2vw,25px);line-height:1.1}
+.cal-day.exam{background:#f2e6ff;color:#7451aa}
+.cal-day.blank{background:transparent}
+.cal-legend{text-align:center;font-size:14px;color:#977d9d;margin:12px 0 0}
+@media(max-height:700px){#calendar .card{gap:5px}.cal-shell{padding:10px 18px}.cal-sub{margin:2px 0 6px}.cal-grid{gap:4px}.cal-day{border-radius:9px}.cal-legend{margin-top:6px}}
 </style>
 </head>
 <body>
@@ -1497,6 +1521,19 @@ body:has(#start.active) header{
     <div class="card">
       <div class="zhead"><h2>📖 キャンディ図鑑</h2><b id="zCount" style="color:var(--hot)"></b><button id="zBack">もどる</button></div>
       <div id="zList"></div>
+    </div>
+  </section>
+
+  <!-- 学びのカレンダー：チョコから開く、日付だけの記録 -->
+  <section class="screen" id="calendar">
+    <div class="card">
+      <div class="cal-head"><h2>🍫 学びのカレンダー</h2><button class="cal-back" id="calBack">お店にもどる</button></div>
+      <div class="cal-shell">
+        <p class="cal-sub">学んだ日の、ちいさな足あと。　🌸 2027年2月1日</p>
+        <div class="cal-monthbar"><button id="calPrev" aria-label="前の月">◀</button><strong id="calMonth"></strong><button id="calNext" aria-label="次の月">▶</button></div>
+        <div class="cal-grid" id="calGrid"></div>
+        <p class="cal-legend">🍫 学んだ日　　🌸 受験の日</p>
+      </div>
     </div>
   </section>
 
@@ -1642,13 +1679,14 @@ const PENS=[['くろ','#1d1a17'],['ピンク','#e0559a'],['むらさき','#7a5af
 
 // ===== 記録（iPadのブラウザ内に保存）=====
 const SKEY='kanjiCandy.v1';
-let S={v:1,p:{},cleared:[],choco:{n:0,last:'',streak:0},pen:0};
+let S={v:1,p:{},cleared:[],choco:{n:0,last:'',streak:0},pen:0,studyDays:[]};
 try{const t=localStorage.getItem(SKEY);if(t)S=Object.assign(S,JSON.parse(t))}catch(e){}
 function save(){try{localStorage.setItem(SKEY,JSON.stringify(S))}catch(e){}}
 const pad=n=>String(n).padStart(2,'0');
 function dstr(d){return d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate())}
 const today=()=>dstr(new Date());
 const yesterday=()=>{const d=new Date();d.setDate(d.getDate()-1);return dstr(d)};
+function markStudyDay(){if(!Array.isArray(S.studyDays))S.studyDays=[];const d=today();if(!S.studyDays.includes(d)){S.studyDays.push(d);save()}}
 const P=q=>S.p[q.key]||(S.p[q.key]={c:0,d:'',w:0});
 const isDone=q=>(S.p[q.key]||{}).c>=2;               // 図鑑入り
 const curShop=()=>Math.min(S.cleared.length,SHOPS.length-1);
@@ -1713,6 +1751,32 @@ function renderHome(){
     return `<div class="shopchip${done?' done':cur?' cur':' lock'}">${vis?`<span class="ic">${x.ic}</span>`:''}</div>`}).join('');
   updateScore();
 }
+// 学習日のみを表示する。別のゲームにも移植しやすい月表示。
+let calMonthIndex=0;
+const CAL_MONTHS=[[2026,11],[2026,12],[2027,1],[2027,2]];
+function renderCalendar(){
+  const [y,m]=CAL_MONTHS[calMonthIndex];
+  $('calMonth').textContent=y+'年 '+m+'月';
+  $('calPrev').disabled=calMonthIndex===0;
+  $('calNext').disabled=calMonthIndex===CAL_MONTHS.length-1;
+  const recorded=new Set(Array.isArray(S.studyDays)?S.studyDays:[]);
+  const first=new Date(y,m-1,1).getDay(), days=new Date(y,m,0).getDate();
+  let html=['日','月','火','水','木','金','土'].map(w=>'<div class="cal-week">'+w+'</div>').join('');
+  for(let i=0;i<first;i++)html+='<div class="cal-day blank"></div>';
+  for(let d=1;d<=days;d++){
+    const date=y+'-'+pad(m)+'-'+pad(d), studied=recorded.has(date),exam=y===2027&&m===2&&d===1;
+    const afterExam=y===2027&&m===2&&d>7;
+    html+='<div class="cal-day'+(studied?' studied':'')+(exam?' exam':'')+(afterExam?' blank':'')+'"><span>'+(!afterExam?d:'')+'</span>'+(exam?'<span class="cal-mark">🌸</span>':studied&&!afterExam?'<span class="cal-mark">🍫</span>':'')+'</div>';
+  }
+  $('calGrid').innerHTML=html;
+}
+$('choco').setAttribute('role','button');$('choco').setAttribute('tabindex','0');
+function openCalendar(){calMonthIndex=0;renderCalendar();show('calendar')}
+$('choco').onclick=openCalendar;
+$('choco').onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();openCalendar()}};
+$('calPrev').onclick=()=>{calMonthIndex=Math.max(0,calMonthIndex-1);renderCalendar()};
+$('calNext').onclick=()=>{calMonthIndex=Math.min(CAL_MONTHS.length-1,calMonthIndex+1);renderCalendar()};
+$('calBack').onclick=()=>{renderHome();show('start')};
 $('pens').addEventListener('click',e=>{const b=e.target.closest('[data-pen]');if(!b)return;S.pen=+b.dataset.pen;save();renderHome()});
 $('startBtn').onclick=()=>begin(omakase());
 $('moreBtn').onclick=()=>begin(omakase());
@@ -1741,9 +1805,9 @@ $('modal').addEventListener('click',e=>{if(e.target.id==='modal'||e.target.datas
 // ===== 記録のリセット =====
 $('resetBtn').onclick=()=>{
   modal(`<h3>記録をリセット</h3>
-    <p>すべての記録（キャンディ瓶・図鑑・チョコ・お店・ペンの色）を消して、はじめからにします。<br>よろしいですか？</p>
+    <p>すべての記録（キャンディ瓶・図鑑・チョコ・学びのカレンダー・お店・ペンの色）を消して、はじめからにします。<br>よろしいですか？</p>
     <div class="bar"><button class="ng" id="rsYes">リセットする</button><button data-close>やめる</button></div>`);
-  $('rsYes').onclick=()=>{S={v:1,p:{},cleared:[],choco:{n:0,last:'',streak:0},pen:0};save();closeModal();renderHome()};
+  $('rsYes').onclick=()=>{S={v:1,p:{},cleared:[],choco:{n:0,last:'',streak:0},pen:0,studyDays:[]};save();closeModal();renderHome()};
 };
 
 // ===== バックアップ =====
@@ -1775,7 +1839,7 @@ $('backupBtn').onclick=()=>{
   };
 };
 
-function begin(list){if(!list.length)return;queue=list;idx=0;okCount=0;wrong=[];sess={newZ:0};updateScore();show('play');renderQ()}
+function begin(list){if(!list.length)return;markStudyDay();queue=list;idx=0;okCount=0;wrong=[];sess={newZ:0};updateScore();show('play');renderQ()}
 function updateScore(){$('score').textContent='★ '+okCount}
 
 // 1画面に収まるようにマスの大きさを計算（縦に並べる）
