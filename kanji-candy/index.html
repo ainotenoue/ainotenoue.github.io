@@ -1409,6 +1409,39 @@ body:has(#start.active) header{
  }
  #start .candy-storefront::before,#start .candy-storefront::after{bottom:76px!important}
 }
+
+/* v4.9 — one shared wall rendering; no overlapping pseudo-wall layers */
+#start .candy-storefront::before,
+#start .candy-storefront::after{
+ content:none!important;
+ display:none!important;
+}
+#start .candy-storefront{
+ border-left:0!important;
+ border-right:0!important;
+ background:
+ linear-gradient(90deg,
+ #a76a53 0 9px,
+ #e8ac8c 9px 28px,
+ #fff9ed 28px calc(100% - 28px),
+ #e8ac8c calc(100% - 28px) calc(100% - 9px),
+ #a76a53 calc(100% - 9px))
+ center top / 100% calc(100% - 105px) no-repeat,
+ #fff9ed!important;
+}
+@media(max-height:760px){
+ #start .candy-storefront{
+ background:
+ linear-gradient(90deg,
+ #a76a53 0 9px,
+ #e8ac8c 9px 28px,
+ #fff9ed 28px calc(100% - 28px),
+ #e8ac8c calc(100% - 28px) calc(100% - 9px),
+ #a76a53 calc(100% - 9px))
+ center top / 100% calc(100% - 76px) no-repeat,
+ #fff9ed!important;
+ }
+}
 </style>
 </head>
 <body>
